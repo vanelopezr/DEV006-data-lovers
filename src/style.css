@@ -42,11 +42,14 @@ nav{
 #aboutSection {
     display: none;
 }
-
+#aboutCollage{
+margin-top: 2%;
+margin-right: 2%;
+    width: 40%;
+}
 #aboutHeaderImage {
     width: 100%;
 }
-
 
 .homeButtons{
     font-family: 'Patrick Hand', cursive;
@@ -77,6 +80,8 @@ nav{
     padding-right: 10%;
     text-align: center;
     font-size: xx-large;
+    color: #514E46;
+    
 }
 #movieHeaderSection {
     display: none;
@@ -264,10 +269,12 @@ nav{
 
 #triviaSection {
     display: none;
+    height: 90%;
     text-align: center;
 }
-#divQuestion {
+.divQuestion {
     width: 33%;
+    height: 80%;
     margin:1%;
 }
 
@@ -284,11 +291,19 @@ nav{
 .Answer {
     width: 60%;
     height: 15%;
-    margin: auto;
     margin-top: 5%;
     font-size: x-large;
     text-align: center;
     background-color: #f0f6f7;
+}
+.answerText{
+    padding: 2%;
+    width: 50%;
+    text-align: center;
+    color: #514E46;
+    font-size: x-large;
+    height: auto;
+    margin: auto;
 }
 
 footer {
