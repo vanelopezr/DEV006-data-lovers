@@ -1,4 +1,4 @@
-import { filterDirector, sortDataYear, filterProducer, filterSpecies, characterMovie, functionSortAZ } from './data.js';
+import { filterDirector, sortDataYear, filterProducer, filterSpecies, characterMovie, functionSortAZ, genderTrivia, specieTrivia, ageTrivia } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 const movies = document.getElementById("movies");
@@ -14,14 +14,23 @@ const characterMovies = document.getElementById("characterMovies");
 const sortAZ = document.getElementById("sortAZ");
 const trivia = document.getElementById("trivia");
 const about = document.getElementById("about");
+const rightAnswerOne = document.getElementById("rightAnswerOne");
+const wrongAnswerOne = document.getElementById("wrongAnswerOne");
+const rightAnswerTwo = document.getElementById("rightAnswerTwo");
+const wrongAnswerTwo = document.getElementById("wrongAnswerTwo");
+const rightAnswerThree = document.getElementById("rightAnswerThree");
+const wrongAnswerThree = document.getElementById("wrongAnswerThree");
 
 about.addEventListener("click", function () {
-  document.getElementById ("aboutHeader").style.display = "flex";
-  document.getElementById ("aboutSection").style.display = "flex";
-  document.getElementById ("homeHeader").style.display = "none";
+  document.getElementById("aboutHeader").style.display = "flex";
+  document.getElementById("aboutSection").style.display = "flex";
+  document.getElementById("homeHeader").style.display = "none";
   document.getElementById("home-Content").style.display = "none";
-  document.getElementById ("moreHeader").style.display = "none";
+  document.getElementById("moreHeader").style.display = "none";
+  document.getElementById("moreSection").style.display = "none";
   document.getElementById("filmsZone").style.display = "none";
+  document.getElementById("triviaSection").style.display = "none";
+  document.getElementById("triviaHeader").style.display = "none";
   document.getElementById("movieHeaderSection").style.display = "none";
 })
 
@@ -33,8 +42,8 @@ movies.addEventListener("click", function () {
   document.getElementById("buttonZone").style.display = "none";
   document.getElementById("movieHeaderSection").style.display = "flex";
   document.getElementById("charactersZone").style.display = "none";
-  document.getElementById ("aboutHeader").style.display = "none";
-  document.getElementById ("aboutSection").style.display = "none";
+  document.getElementById("aboutHeader").style.display = "none";
+  document.getElementById("aboutSection").style.display = "none";
   document.getElementById("moreHeader").style.display = "none";
 })
 
@@ -45,6 +54,8 @@ more.addEventListener("click", function () {
   document.getElementById("moreSection").style.display = "flex";
   document.getElementById("triviaSection").style.display = "none";
   document.getElementById("triviaHeader").style.display = "none";
+  document.getElementById("aboutHeader").style.display = "none";
+  document.getElementById("aboutSection").style.display = "none";
 })
 
 characters.addEventListener("click", function () {
@@ -54,27 +65,13 @@ characters.addEventListener("click", function () {
   document.getElementById("characterHeaderSection").style.display = "flex";
   document.getElementById("characterContent").style.display = "flex";
   document.getElementById("charactersZone").style.display = "flex";
-  document.getElementById ("triviaHeader").style.display = "none";
+  document.getElementById("triviaHeader").style.display = "none";
 
 })
 
 
 
-trivia.addEventListener("click", function () {  
-  const peopleMap = data.films.flatMap(element => element.people);
-  const genderF = peopleMap.filter (people => people.gender === "Female");
-  const femalePercent = ((genderF.length * 100) / peopleMap.length); 
-
-  const genderM = peopleMap.filter (people => people.gender === "Male");
-  const malePercent = ((genderM.length * 100) / peopleMap.length) 
-
-  const genderNA = peopleMap.filter (people => people.gender === "NA")
-  const naPercent = ((genderNA.length * 100) / peopleMap.length) 
-
-  const genderUnknown = peopleMap.filter (people => people.gender === "Unknown (Possible Male)")
-  const unknownPercent = ((genderUnknown.length * 100) / peopleMap.length) 
-
-  console.log(Math.round(femalePercent), Math.round(malePercent), Math.round(naPercent), Math.round(unknownPercent))
+trivia.addEventListener("click", function () {
 
   document.getElementById("homeHeader").style.display = "none";
   document.getElementById("filmsZone").style.display = "none";
@@ -86,7 +83,10 @@ trivia.addEventListener("click", function () {
   document.getElementById("charactersZone").style.display = "none";
   document.getElementById("triviaSection").style.display = "flex";
   document.getElementById("triviaHeader").style.display = "flex";
-  
+  document.getElementById("aboutHeader").style.display = "none";
+  document.getElementById("aboutSection").style.display = "none";
+
+
 })
 
 
@@ -297,3 +297,41 @@ añoDeEstreno.addEventListener("change", function () {
   //deberia mostrar el resultado del filtro
   document.getElementById("filterSection").style.display = "flex";
 })
+
+rightAnswerOne.addEventListener("click", function () {
+  document.getElementById("answerOne").innerText = genderTrivia(data);
+  rightAnswerOne.style.backgroundColor = "#7EDE87";
+  wrongAnswerOne.style.backgroundColor = "#DF5555";
+})
+
+wrongAnswerOne.addEventListener("click", function () {
+  document.getElementById("answerOne").innerText = genderTrivia(data);
+  wrongAnswerOne.style.backgroundColor = "#DF5555";
+  rightAnswerOne.style.backgroundColor = "#7EDE87";
+})
+
+rightAnswerTwo.addEventListener("click", function () {
+  document.getElementById("answerTwo").innerText = specieTrivia(data);
+  rightAnswerTwo.style.backgroundColor = "#7EDE87"
+  wrongAnswerTwo.style.backgroundColor = "#DF5555";
+})
+
+wrongAnswerTwo.addEventListener("click", function () {
+  document.getElementById("answerTwo").innerText = specieTrivia(data);
+  rightAnswerTwo.style.backgroundColor = "#7EDE87"
+  wrongAnswerTwo.style.backgroundColor = "#DF5555";
+})
+
+
+rightAnswerThree.addEventListener("click", function () {
+  document.getElementById("answerThree").innerText = ageTrivia(data);
+  rightAnswerThree.style.backgroundColor = "#7EDE87"
+  wrongAnswerThree.style.backgroundColor = "#DF5555";
+})
+
+wrongAnswerThree.addEventListener("click", function () {
+  document.getElementById("answerThree").innerText = ageTrivia(data);
+  rightAnswerThree.style.backgroundColor = "#7EDE87"
+  wrongAnswerThree.style.backgroundColor = "#DF5555";
+})
+
