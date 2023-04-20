@@ -6,18 +6,19 @@ export const filterDirector = (directores, data) => {
 };
 
 export const filterProducer = (productores, data) => {
-  const productores1 = data.films.filter(films => films.producer === productores)
+  const productores1 = data.filter(films => films.producer === productores)
   return productores1;
 };
+
 
 
 export const sortDataYear = (ordenAs, data) => {
   let orden = "";
   if (ordenAs === "oldest") {
-    orden = data.films.sort((x, y) => x.release_date - y.release_date)
+    orden = data.sort((x, y) => x.release_date - y.release_date)
   }
   else {
-    orden = data.films.sort((x, y) => x.release_date - y.release_date).reverse((x, y) => x.release_date - y.release_date)
+    orden = data.sort((x, y) => x.release_date - y.release_date).reverse((x, y) => x.release_date - y.release_date)
   }
 
   return orden;
@@ -80,8 +81,8 @@ export const genderTrivia = (data) => {
   const genderNA = peopleMap.filter(people => ["NA", "Unknown (Possible Male)"].includes(people.gender))
   const naPercent = Math.round((genderNA.length * 100) / peopleMap.length);
 
-  const answerOneDone = "The male percent is higher with " + malePercent + 
-  "%, the female percent is " + femalePercent + "% and there is only  " + naPercent + "% of unknown genders."
+  const answerOneDone = "The male percent is higher with " + malePercent +
+    "%, the female percent is " + femalePercent + "% and there is only  " + naPercent + "% of unknown genders."
 
   return answerOneDone;
 }
@@ -117,7 +118,7 @@ export const ageTrivia = (data) => {
 
   const adults = 100 - (totalYoung + naPercent)
 
-  const answerThreeDone = adults +  "% of the characters are adults, " + totalYoung +"% are under 18 and " + naPercent 
-  + "% are unknown."
+  const answerThreeDone = adults + "% of the characters are adults, " + totalYoung + "% are under 18 and " + naPercent
+    + "% are unknown."
   return answerThreeDone
 }

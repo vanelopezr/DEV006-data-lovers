@@ -114,11 +114,12 @@ trivia.addEventListener("click", function () {
 
 //constructor de objetos para seleccionar datos a mostrar
 class titleAndPoster {
-  constructor(title, poster, director, release_date, rt_score) {
+  constructor(title, poster, director, producer, release_date, rt_score) {
     //"this" indica el objeto en concreto que se utilizará (o algo así)
     this.poster = createImage(poster);
     this.title = createText("Title: " + "'" + title + "'");
     this.director = createText("Director: " + director);
+    this.producer = createText("Producer: " + producer);
     this.release_date = createText("Release date: " + release_date);
     this.rt_score = createText("Score: " + rt_score);
 
@@ -143,7 +144,7 @@ class showCharacters {
 //llamar los datos
 data.films
   //creamos un array de objetos con los datos que queremos sacar.
-  .map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  .map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
   //creamos otro array con etiquetas (div)
   .map(Element => divCreator(Element))
   //mostrar los objetos en una sección particular del HTML.
@@ -167,6 +168,7 @@ function infoDivCreator(x) {
   //al div creado le agregamos hijos con información tipo texto
   movieDivHover.appendChild(x.title);
   movieDivHover.appendChild(x.director);
+  movieDivHover.appendChild(x.producer);
   movieDivHover.appendChild(x.release_date);
   movieDivHover.appendChild(x.rt_score);
   return movieDivHover
@@ -237,10 +239,13 @@ function createText(textMovie) {
 
 //agregamos el evento para que al seleccionar el director que quiere se dispare
 //la función de filtrar
+let directorArray;
+let producerArray;
 directores.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const filteredByDirector = filterDirector(directores.value, data);
-  filteredByDirector.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  directorArray = filteredByDirector;
+  filteredByDirector.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     .map(Element => divCreator(Element))
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
@@ -250,20 +255,45 @@ directores.addEventListener("change", function () {
 })
 
 
-
 productores.addEventListener("change", function () {
+  const dataBase = directorArray ? directorArray : data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const filteredByProducer = filterProducer(productores.value, data);
+  const filteredByProducer = filterProducer(productores.value, dataBase);
+  producerArray = filteredByProducer
   //devuelve un array con objetos del resultado del filtro
-  filteredByProducer.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  filteredByProducer.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     //crea array con los divs 
     .map(Element => divCreator(Element))
     //poner los divs en pantalla
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
   document.getElementById("filmsZone").style.display = "none";
+  document.getElementById("filterSection").style.display = "flex";
+})
+
+
+añoDeEstreno.addEventListener("change", function () {
+  const dataSort1 = producerArray?producerArray:data.films || directorArray? directorArray:data.films;
+  //const dataSort2 = producerArray?producerArray:data.films; directorArray === "false"? directorArray:producerArray;
+  //const dataSort3 = producerArray=== "false"?producerArray:directorArray; directorArray ? directorArray:data.films;
+
+  // const elegido = dataSort1?dataSort1:
+
+  //console.log(dataSort1 , dataSort2, dataSort3);
+  filterSection.innerHTML = "";
+  //utilizar la funcion filtrar
+  const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort1);
+  //devuelve un array con objetos del resultado del filtro
+  nuevoOrden.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
+    //crea array con los divs 
+    .map(Element => divCreator(Element))
+    //poner los divs en pantalla
+    .forEach(Element => filterSection.appendChild(Element))
+  //ocultar la pantalla de inicio al usar el filtro
+  document.getElementById("filmsZone").style.display = "none";
+  //deberia mostrar el resultado del filtro
   document.getElementById("filterSection").style.display = "flex";
 })
 
@@ -305,22 +335,6 @@ sortAZ.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
-añoDeEstreno.addEventListener("change", function () {
-  //limpiar la pagina
-  filterSection.innerHTML = "";
-  //utilizar la funcion filtrar
-  const nuevoOrden = sortDataYear(añoDeEstreno.value, data);
-  //devuelve un array con objetos del resultado del filtro
-  nuevoOrden.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
-    //crea array con los divs 
-    .map(Element => divCreator(Element))
-    //poner los divs en pantalla
-    .forEach(Element => filterSection.appendChild(Element))
-  //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("filmsZone").style.display = "none";
-  //deberia mostrar el resultado del filtro
-  document.getElementById("filterSection").style.display = "flex";
-})
 
 rightAnswerOne.addEventListener("click", function () {
   document.getElementById("answerOne").innerText = genderTrivia(data);
