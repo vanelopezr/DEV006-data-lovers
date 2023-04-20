@@ -53,7 +53,7 @@ export const functionSortAZ = (sortAZ, data) => {
   })
 
   if (sortAZ === "AZ") {
-    
+
     return AZ
   }
 
@@ -70,6 +70,58 @@ export const functionSortAZ = (sortAZ, data) => {
 
 
 export const genderTrivia = (data) => {
-  const gender = data.films.flatMap (element => element.people).flatMap(element => element.gender);
-  console.log(gender)
+
+  const peopleMap = data.films.flatMap(element => element.people);
+  const genderF = peopleMap.filter(people => people.gender === "Female");
+  const femalePercent = Math.round((genderF.length * 100) / peopleMap.length);
+
+  const genderM = peopleMap.filter(people => people.gender === "Male");
+  const malePercent = Math.round((genderM.length * 100) / peopleMap.length);
+
+  const genderNA = peopleMap.filter(people => ["NA", "Unknown (Possible Male)"].includes(people.gender))
+  const naPercent = Math.round((genderNA.length * 100) / peopleMap.length);
+
+  const answerOneDone = "The male percent is higher with " + malePercent + 
+  "%, the female percent is " + femalePercent + "% and there is only  " + naPercent + "% of unknown genders."
+
+  return answerOneDone;
+}
+
+export const specieTrivia = (data) => {
+
+  const peopleMap = data.films.flatMap(element => element.people);
+  const witch = peopleMap.filter(people => people.specie === "Witch");
+  const witchPercent = Math.round((witch.length * 100) / peopleMap.length);
+
+  const cats = peopleMap.filter(people => people.specie === "Cat");
+  const catsPercent = Math.round((cats.length * 100) / peopleMap.length);
+
+  const answerTwoDone = "Cat is the second most common specie with " + catsPercent + "%, only " + witchPercent + "% are witches."
+
+  return answerTwoDone
+}
+
+export const ageTrivia = (data) => {
+
+  const peopleMap = data.films.flatMap(element => element.people);
+
+  const young = peopleMap.filter(people => people.age < 18);
+  const youngPercent = Math.round((young.length * 100) / peopleMap.length);
+
+  const youngs = peopleMap.filter(people => ["Young", "Child", "Teenager", "12-14", "circa 14-17"].includes(people.age));
+  const youngPercents = Math.round((youngs.length * 100) / peopleMap.length);
+
+  const totalYoung = youngPercent + youngPercents
+
+  const na = peopleMap.filter(people => ["NA", "unknown", "", "Unknown"].includes(people.age));
+  const naPercent = Math.round((na.length * 100) / peopleMap.length);
+
+  const adults = 100 - (totalYoung + naPercent)
+
+
+  console.log(peopleMap.flatMap(element => element.age))
+
+  const answerThreeDone = adults +  "% of the characters are adults, " + totalYoung +"% are under 18 and " + naPercent 
+  + "% are unknown."
+  return answerThreeDone
 }
