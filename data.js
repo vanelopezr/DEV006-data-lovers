@@ -11,6 +11,21 @@ export const filterProducer = (productores, data) => {
   return productores1;
 };
 
+
+export const sortDataYear = (ordenAs, data) => {
+  let orden = "";
+  if (ordenAs === "oldest") {
+    orden = data.films.sort((x, y) => x.release_date - y.release_date)
+  }
+  else {
+    orden = data.films.sort((x, y) => x.release_date - y.release_date).reverse((x, y) => x.release_date - y.release_date)
+  }
+
+  return orden;
+
+};
+
+
 export const filterSpecies = (especie, data) => {
 
 
@@ -22,34 +37,39 @@ export const filterSpecies = (especie, data) => {
     .filter(element => ["Wolf", "Red elk", "Deity", "Bird", "unknown", "Spirit of The White Fox", "Dragon", "Wizard", "Demon", "Human/Scarecrow", "Dog", "Arch-mage/Human", "Fish/Human"].includes(element.specie))
 };
 
+export const characterMovie = (characterMovies, data) => {
 
-export const sortData = (ordenAs, data) => {
-  let orden = "";
-  if (ordenAs === "ascendente") {
-    orden = data.films.sort((x, y) => x.rt_score - y.rt_score)
+  return data.films.filter(films => films.title === characterMovies)
+    .flatMap(element => element.people);
+
+}
+
+export const functionSortAZ = (sortAZ, data) => {
+
+  const AZ = data.films.flatMap(element => element.people).sort(function (a, b) {
+    if (a.name < b.name) { return -1; }
+    if (a.name > b.name) { return 1; }
+    return 0;
+  })
+
+  if (sortAZ === "AZ") {
+    
+    return AZ
   }
+
   else {
-    orden = data.films.sort((x, y) => x.rt_score - y.rt_score).reverse((x, y) => x.rt_score - y.rt_score)
+    const ZA = AZ.reverse((function (a, b) {
+      if (a.name < b.name) { return -1; }
+      if (a.name > b.name) { return 1; }
+      return 0;
+    }));
+
+    return ZA
   }
+}
 
-  return orden;
 
-};
-
-export const sortDataYear = (ordenAs, data) => {
-  let orden = "";
-  if (ordenAs === "ascendente") {
-    orden = data.films.sort((x, y) => x.release_date - y.release_date)
-  }
-  else {
-    orden = data.films.sort((x, y) => x.release_date - y.release_date).reverse((x, y) => x.release_date - y.release_date)
-  }
-
-  return orden;
-
-};
-
-export const stats = () => {
-  return 'OMGg';
-};
-
+export const genderTrivia = (data) => {
+  const gender = data.films.flatMap (element => element.people).flatMap(element => element.gender);
+  console.log(gender)
+}

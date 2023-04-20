@@ -3,77 +3,207 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Data Lovers</title>
+  <title>Ghibli Club</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body id="body">
-  <header>
+
+
+
+  <header id="homeHeader">
+    <img id="header-content" src="Group 14.png" alt="home-Header">
   </header>
-  <main class="welcome" id="welcome">
-    <div id="contentLogo">
-      <img id="logo" src="Group 11.png" alt="imagen-ghibli">
+
+  <header id="aboutHeader">
+    <img src="Group 21.png" id="aboutHeaderImage" alt="about-header">
+  </header>
+
+  <header id="triviaHeader">
+    <img src="headerTrivia.png" id="triviaHeaderImage" alt="trivia-header">
+  </header>
+
+  <header id="moreHeader">
+    <img src="headerMore.png" id="moreHeaderImage" alt="more-header2">
+  </header>
+
+
+  <nav id="buttonZone">
+    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <button class="homeButtons" id="about"> About</button>
+    <button class="homeButtons" id="movies"> Movies </button>
+    <button class="homeButtons" id="characters"> Characters </button>
+    <button class="homeButtons" id="trivia"> Trivia </button>
+    <button class="homeButtons" id="more"> More </button>
+  </nav>
+  <section class="home-Content" id="home-Content">
+    <img id="home-Collage" src="Group 12.png" alt="Image-home">
+    <div class="welcome-Text">
+      <p>Welcome to Ghibli Club! the place where you can find everything Ghibli related like their movies, characters,
+        a little trivia to test your Ghibli knowledge and some more information that might be of your interest if you
+        consider yourself a Ghibli fan!<br>
+        <br>
+        We hope you have fun and enjoy your visit!
+      </p>
     </div>
-    <div id="buttonZone">
-      <button class="buttonWelcome"> Ghibli Club</button>
-      <button class="buttonWelcome" id="movies"> Movies </button>
-      <button class="buttonWelcome"> Characters </button>
-      <button class="buttonWelcome"> Trivia </button>
+  </section>
+
+
+  <section id = "aboutSection">
+    <div class="welcome-Text">
+      <p>Studio Ghibli, acclaimed Japanese animation studio was founded in 1985 by animators and directors Miyazaki Hayao, Takahata Isao and producer Suzuki Toshio.
+        Studio Ghibli is known for the high quality of its filmmaking and its artistry. Its feature films have won both critical and popular praise and had also influenced other animation studios.</p>
     </div>
-  </main>
-  <section class="content">
-    <p id="filterText">Filtros: </p>
+    <img id = "aboutCollage" src="Group 22.png" alt="about-Image">
+  </section>
+
+
+  <section id="movieHeaderSection">
+    <header id="movieHeader"> <img src="headerMovies.png" id="moviesHeader" alt="movie-header2"></header>
+  </section>
+
+  <section class="content" id="content">
+    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <p class="filterText">Filter by: </p>
     <select class="Filtros" name="Directores" id="Directores">
-      <option disabled selected>Directores</option>
-      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-      <option value="Isao Takahata">Isao Takahata</option>
-      <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-      <option value="Hiroyuki Morita">Hiroyuki Morita</option>
-      <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-      <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+      <option disabled selected class="options">Directors</option>
+      <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
+      <option value="Isao Takahata" class="options">Isao Takahata</option>
+      <option value="Yoshifumi Kondō" class="options">Yoshifumi Kondō</option>
+      <option value="Hiroyuki Morita" class="options">Hiroyuki Morita</option>
+      <option value="Gorō Miyazaki" class="options">Gorō Miyazaki</option>
+      <option value="Hiromasa Yonebayashi" class="options">Hiromasa Yonebayashi</option>
     </select>
 
     <select class="Filtros" name="Productores" id="Productores">
-      <option disabled selected>Productores</option>
-      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-      <option value="Isao Takahata">Isao Takahata</option>
-      <option value="Toru Hara">Toru Hara</option>
-      <option value="Toshio Suzuki">Toshio Suzuki</option>
-      <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>
-    </select>
-
-    <select class="Filtros" name="Puntuacion" id="Puntuacion">
-      <option disabled selected>Puntuación</option>
-      <option value="ascendente">Ascendente</option>
-      <option value="descendente">Descendente</option>
+      <option disabled selected class="options">Producers</option>
+      <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
+      <option value="Isao Takahata" class="options">Isao Takahata</option>
+      <option value="Toru Hara" class="options">Toru Hara</option>
+      <option value="Toshio Suzuki" class="options">Toshio Suzuki</option>
+      <option value="Yoshiaki Nishimura" class="options">Yoshiaki Nishimura</option>
     </select>
 
     <select class="Filtros" name="añoDeEstreno" id="añoDeEstreno">
-      <option disabled selected>Año de estreno</option>
-      <option value="ascendente">Ascendente</option>
-      <option value="descendente">Descendente</option>
+      <option disabled selected class="options">Release Date</option>
+      <option value="oldest" class="options">Oldest</option>
+      <option value="newest" class="options">Newest</option>
+    </select>
+  </section>
+
+  <section id="filmsZone" class="filmsZone">
+  </section>
+
+
+
+
+
+  <section id="characterHeaderSection">
+    <header id="characterHeader"> <img src="headerCharacters.png" id="characterImage" alt="character-header2"></header>
+  </section>
+
+  <section class="content" id="characterContent">
+    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <p class="filterText">Filter by: </p>
+
+    <select class="Filtros" name="Movies" id="characterMovies">
+      <option disabled selected>Movies</option>
+      <option value="Castle in the Sky" class="options">Castle in the Sky</option>
+      <option value="My Neighbor Totoro" class="options">My Neighbor Totoro</option>
+      <option value="Kiki's Delivery Service" class="options">Kiki's Delivery Service</option>
+      <option value="Grave of the Fireflies" class="options">Grave of the Fireflies</option>
+      <option value="Only Yesterday" class="options">Only Yesterday</option>
+      <option value="Porco Rosso" class="options">Porco Rosso</option>
+      <option value="Pom Poko" class="options">Pom Poko</option>
+      <option value="Whisper of the Heart" class="options">Whisper of the Heart</option>
+      <option value="Princess Mononoke" class="options">Princess Mononoke</option>
+      <option value="My Neighbors the Yamadas" class="options">My Neighbors the Yamadas</option>
+      <option value="Spirited Away" class="options">Spirited Away</option>
+      <option value="The Cat Returns" class="options">The Cat Returns</option>
+      <option value="Howl's Moving Castle" class="options">Howl's Moving Castle</option>
+      <option value="Tales from Earthsea" class="options">Tales from Earthsea</option>
+      <option value="Ponyo on the Cliff by the Sea" class="options">Ponyo on the Cliff by the Sea</option>
+      <option value="The Secret World of Arrietty" class="options">The Secret World of Arrietty</option>
+      <option value="From Up on Poppy Hill" class="options">From Up on Poppy Hill</option>
+      <option value="The Wind Rises" class="options">The Wind Rises</option>
+      <option value="The Tale of the Princess Kaguya" class="options">The Tale of the Princess Kaguya</option>
+      <option value="When Marnie Was There" class="options">When Marnie Was There</option>
     </select>
 
     <select class="Filtros" name="Especie" id="Especie">
-      <option disabled selected>Especie</option>
-      <option value="Human">Humanos</option>
-      <option value="Witch">Brujas</option>
-      <option value="Cat">Gatos</option>
-      <option value="Totoro">Totoros</option>
-      <option value="Raccoon Dog">Tanukis</option>
-      <option value="Witch">Brujas</option>
-      <option value="Spirit">Espíritus</option>
-      <option value="Borrower">Incursores</option>
-      <option value="Else">Otros</option>
+      <option disabled selected>Specie</option>
+      <option value="Human" class="options">Humans</option>
+      <option value="Witch" class="options">Witches</option>
+      <option value="Cat" class="options">Cats</option>
+      <option value="Totoro" class="options">Totoros</option>
+      <option value="Raccoon Dog" class="options">Raccoon Dogs</option>
+      <option value="Spirit" class="options">Spirits</option>
+      <option value="Borrower" class="options">Borrowers</option>
+      <option value="Else" class="options">Others</option>
     </select>
 
-    <input class="Filtros" type="text" id="searchSpace" placeholder="Ingresa tu busqueda">
+    <select class="Filtros" name="sortAZ" id="sortAZ">
+      <option disabled selected class="options">Sort A-Z</option>
+      <option value="AZ" class="options">A-Z</option>
+      <option value="ZA" class="options">Z-A</option>
+    </select>
+
   </section>
-  <section id="filmsZone" class="filmsZone">
+
+
+
+  <section id="charactersZone" class="charactersZone">
   </section>
+
   <section class="filterSection" id="filterSection"></section>
   </section>
+
+
+  <section id="triviaSection">
+
+    <div class="divQuestion">
+      <p class="question">Are there more male or female characters in the Ghibli universe?</p>
+      <div class="Answer" id="rightAnswerOne"> More Males</div>
+      <div class="Answer" id="wrongAnswerOne"> More Females</div>
+      <p id="answerOne"></p>
+    </div>
+
+    <div class="divQuestion">
+      <p class="question">Besides humans, which specie is the most common one?</p>
+      <div class="Answer" id="rightAnswerTwo"> Witches</div>
+      <div class="Answer" id="wrongAnswerTwo"> Cats</div>
+      <p id="answerTwo"></p>
+    </div>
+
+    <div class="divQuestion">
+      <p class="question">Studio Ghibli has more adult or young characters in their movies?</p>
+      <div class="Answer" id="rightAnswerThree"> Adult</div>
+      <div class="Answer" id="wrongAnswerThree"> Young</div>
+      <p id="answerThree"></p>
+    </div>
+
+  </section>
+
+
+
+  <section id="moreSection">
+    <div class="moreDivs">
+      <img class="more-Images" src="ghibli_park_map(1).jpg" alt="Image-park">
+      <a href="https://ghibli-park.jp/en/" class="moreText"> Themed Park </a>
+    </div>
+    <div class="moreDivs">
+      <img class="more-Images" src="image(1).jpg" alt="Image-museum">
+      <a href="https://www.ghibli-museum.jp/en/" class="moreText"> Museum </a>
+    </div>
+    <div class="moreDivs">
+      <img class="more-Images" src="ghibli(1).jpg" alt="Image-web">
+      <a href="https://www.ghibli.jp/" class="moreText"> Official Website </a>
+    </div>
+  </section>
+
+
   <div id="root"></div>
+  <footer><img src="pngegg(28) 1.png" id="footerImage" alt=""></footer>
   <script src="main.js" type="module"></script>
 </body>
 
