@@ -1,7 +1,6 @@
 
 export const filterDirector = (directores, data) => {
   //filtro
-
   const directores1 = data.films.filter(films => films.director === directores)
   return directores1;
 };
@@ -117,9 +116,6 @@ export const ageTrivia = (data) => {
   const naPercent = Math.round((na.length * 100) / peopleMap.length);
 
   const adults = 100 - (totalYoung + naPercent)
-
-
-  console.log(peopleMap.flatMap(element => element.age))
 
   const answerThreeDone = adults +  "% of the characters are adults, " + totalYoung +"% are under 18 and " + naPercent 
   + "% are unknown."

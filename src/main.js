@@ -20,6 +20,21 @@ const rightAnswerTwo = document.getElementById("rightAnswerTwo");
 const wrongAnswerTwo = document.getElementById("wrongAnswerTwo");
 const rightAnswerThree = document.getElementById("rightAnswerThree");
 const wrongAnswerThree = document.getElementById("wrongAnswerThree");
+const refreshHome = document.getElementById("refreshHome");
+const refreshMovies = document.getElementById("refreshMovies");
+const refreshCharacters = document.getElementById("refreshCharacters");
+const triviaAgain = document.getElementById("triviaAgain");
+
+refreshHome.addEventListener("click", function () {
+  history.go(0)
+})
+refreshMovies.addEventListener("click", function () {
+  history.go(0)
+})
+
+refreshCharacters.addEventListener("click", function () {
+  history.go(0)
+})
 
 about.addEventListener("click", function () {
   document.getElementById("aboutHeader").style.display = "flex";
@@ -45,6 +60,9 @@ movies.addEventListener("click", function () {
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
   document.getElementById("moreHeader").style.display = "none";
+  document.getElementById("triviaSection").style.display = "none";
+  document.getElementById("triviaHeader").style.display = "none";
+  document.getElementById("moreSection").style.display = "none";
 })
 
 more.addEventListener("click", function () {
@@ -66,7 +84,11 @@ characters.addEventListener("click", function () {
   document.getElementById("characterContent").style.display = "flex";
   document.getElementById("charactersZone").style.display = "flex";
   document.getElementById("triviaHeader").style.display = "none";
-
+  document.getElementById("triviaSection").style.display = "none";
+  document.getElementById("moreHeader").style.display = "none";
+  document.getElementById("aboutHeader").style.display = "none";
+  document.getElementById("aboutSection").style.display = "none";
+  document.getElementById("moreSection").style.display = "none";
 })
 
 
@@ -81,7 +103,7 @@ trivia.addEventListener("click", function () {
   document.getElementById("moreHeader").style.display = "none";
   document.getElementById("moreSection").style.display = "none";
   document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("triviaSection").style.display = "flex";
+  document.getElementById("triviaSection").style.display = "grid";
   document.getElementById("triviaHeader").style.display = "flex";
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
@@ -217,8 +239,8 @@ function createText(textMovie) {
 //la función de filtrar
 directores.addEventListener("change", function () {
   filterSection.innerHTML = "";
-  const directorNuevo = filterDirector(directores.value, data);
-  directorNuevo.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  const filteredByDirector = filterDirector(directores.value, data);
+  filteredByDirector.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
     .map(Element => divCreator(Element))
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
@@ -227,13 +249,15 @@ directores.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
+
+
 productores.addEventListener("change", function () {
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const producerNuevo = filterProducer(productores.value, data);
+  const filteredByProducer = filterProducer(productores.value, data);
   //devuelve un array con objetos del resultado del filtro
-  producerNuevo.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  filteredByProducer.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
     //crea array con los divs 
     .map(Element => divCreator(Element))
     //poner los divs en pantalla
@@ -333,5 +357,14 @@ wrongAnswerThree.addEventListener("click", function () {
   document.getElementById("answerThree").innerText = ageTrivia(data);
   rightAnswerThree.style.backgroundColor = "#7EDE87"
   wrongAnswerThree.style.backgroundColor = "#DF5555";
+})
+
+triviaAgain.addEventListener("click", function () {
+  for (let i = 0; i < 6; i++) {
+    document.getElementsByClassName("Answer")[i].style.backgroundColor = "#f0f6f7";
+  }
+  for (let i = 0; i < 3; i++) {
+    document.getElementsByClassName("answerText")[i].innerText = "";
+  }
 })
 
