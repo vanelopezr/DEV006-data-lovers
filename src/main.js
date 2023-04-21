@@ -30,10 +30,15 @@ refreshHome.addEventListener("click", function () {
 })
 refreshMovies.addEventListener("click", function () {
   history.go(0)
+  productores.value = "Producers"
+  directores.value = "directors"
 })
 
 refreshCharacters.addEventListener("click", function () {
   history.go(0)
+  characterMovies.value = "movies"
+  especie.value = "specie"
+
 })
 
 about.addEventListener("click", function () {
@@ -308,6 +313,7 @@ characterMovies.addEventListener("change", function () {
     .forEach(Element => filterSection.appendChild(Element))
   document.getElementById("charactersZone").style.display = "none";
   document.getElementById("filterSection").style.display = "flex";
+  especie.value = "specie"
 })
 
 
@@ -331,9 +337,9 @@ especie.addEventListener("change", function () {
 })
 
 sortAZ.addEventListener("change", function () {
-  const dataBase = specieArray? specieArray:data.films;
+  const dataSort1 = especie.value === "specie"? movieArray:specieArray;
   filterSection.innerHTML = "";
-  const characterSortAZ = functionSortAZ(sortAZ.value, dataBase);
+  const characterSortAZ = functionSortAZ(sortAZ.value, dataSort1);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
