@@ -100,7 +100,7 @@ nav {
     display: none;
     padding: 0%;
     margin: 0%;
-    width: cover;
+    width: 100%;
 }
 
 #movieHeader {
@@ -116,7 +116,6 @@ nav {
     height: 3%;
     display: none;
     flex-wrap: wrap;
-    size: 10%;
     margin-top: 0;
     background-color: #829460;
 }
@@ -167,10 +166,8 @@ nav {
 }
 
 .filmDivs {
-    display: flexbox;
     width: 20%;
     border: 8px solid #a9b690;
-    border-spacing: 50%;
     border-radius: 10%;
     margin-left: 9.5%;
     margin-top: 4%;
@@ -183,7 +180,7 @@ nav {
 .infoText {
     color: #514E46;
     font-size: x-large;
-    text-justify: center;
+    justify-content: center;
     margin-left: 13%;
     margin-right: 13%;
     margin-top: 0%;
@@ -245,7 +242,7 @@ nav {
 .moreText {
     color: #514E46;
     font-size: xx-large;
-    text-justify: center;
+    justify-content: center;
     margin: auto;
 }
 
@@ -461,16 +458,70 @@ footer {
 
     }
 
+    #movieHeader {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #moviesHeader {
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+
+    .filmDivs {
+        width: 70%;
+        border: 8px solid #a9b690;
+        border-radius: 10%;
+        margin: 50px;
+        margin-bottom: 10px;
+        justify-content: center;
+        background-color: #EEEEEE;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    
+    }
+    .infoText {
+        color: #514E46;
+        font-size: medium;
+        text-align:center;
+        margin-left: 13%;
+        margin-right: 13%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+
+    .posterImages {
+        width: 70%;
+        padding: 5px;
+        margin-left: 12%;
+        margin-top: 5%;
+        border-radius: 5%;
+    }
 
 
 
 
 
 
-
-
-
-
+    #triviaSection {
+        display: none;
+        height: 90%;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    #q1 {
+        grid-row: 1;
+    }
+    #q2 {
+        grid-row: 2;
+    }
+    #q3 {
+        grid-row: 3;
+    }
 
 
 
@@ -500,16 +551,82 @@ footer {
     .moreText {
         color: #514E46;
         font-size: large;
-        text-justify: center;
+        align-content: center;
         margin: auto;
+    }
+
+    #triviaHeaderImage {
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+
+    #triviaSection {
+        display: none;
+        height: 90%;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+
+    .divQuestion {
+        width: 100%;
+        height: 100%;
+        margin: 1%;
+
+    }
+
+    .question {
+        padding: 2%;
+        width: 100%;
+        text-align: center;
+        color: #514E46;
+        font-size: large;
+        height: auto;
+        margin: auto;
+
+    }
+
+    .Answer {
+        width: 60%;
+        height: 15%;
+        margin-top: 5%;
+        font-size: x-large;
+        text-align: center;
+        background-color: #f0f6f7;
+        font-family: 'Patrick Hand', cursive;
+        font-size: large;
+        color: #514E46;
+
+    }
+
+    .answerText {
+        padding: 2%;
+        width: 50%;
+        text-align: center;
+        color: #514E46;
+        font-size: large;
+        height: auto;
+        margin: auto;
+
+
+    }
+
+    #triviaAgain {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        font-family: 'Patrick Hand', cursive;
+        font-size: medium;
+        color: #514E46;
+        grid-row: 4;
     }
 
 
 
-
-
-
-    
     footer {
         display: flex;
         justify-content: center;
