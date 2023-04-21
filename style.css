@@ -1,5 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 body {
     margin-top: 0%;
     margin-left: 0%;
@@ -8,26 +8,34 @@ body {
     background-color: #D3D9DA;
     font-family: 'Patrick Hand', cursive;
 }
-#homeHeader{
+
+.refreshButton {
+    background-color: #829460;
+    border: none;
+}
+
+#homeHeader {
     display: flex;
     padding: 0%;
     margin: 0%;
 }
 
-#header-content{
+#header-content {
     width: 100%;
     height: 100%;
 }
-nav{
+
+nav {
     background-color: #829460;
     height: 3%;
     align-items: center;
-    display:flex;
+    display: flex;
     align-items: flex-start;
 }
+
 .homePng {
     width: 50%;
-    margin-left: 40px ;
+    margin-left: 40px;
     padding-top: 15%;
 }
 
@@ -42,21 +50,23 @@ nav{
 #aboutSection {
     display: none;
 }
-#aboutCollage{
-margin-top: 2%;
-margin-right: 2%;
+
+#aboutCollage {
+    margin-top: 2%;
+    margin-right: 2%;
     width: 40%;
 }
+
 #aboutHeaderImage {
     width: 100%;
 }
 
-.homeButtons{
+.homeButtons {
     font-family: 'Patrick Hand', cursive;
     font-size: xx-large;
     width: 15%;
     padding: 8px 60px;
-    border-radius: 15px ;
+    border-radius: 15px;
     border: solid 5px #829460;
     opacity: 80%;
     margin-left: 3%;
@@ -65,15 +75,17 @@ margin-right: 2%;
 
 }
 
-.home-Content{
+.home-Content {
     display: flex;
     align-items: flex-start;
 }
-#home-Collage{
+
+#home-Collage {
     margin-left: 10%;
     width: 40%;
 }
-.welcome-Text{
+
+.welcome-Text {
     width: 40%;
     padding-top: 5%;
     padding-left: 10%;
@@ -81,18 +93,21 @@ margin-right: 2%;
     text-align: center;
     font-size: xx-large;
     color: #514E46;
-    
+
 }
+
 #movieHeaderSection {
     display: none;
     padding: 0%;
     margin: 0%;
-    width:cover;
+    width: cover;
 }
+
 #movieHeader {
     width: 100%;
 }
-#moviesHeader{
+
+#moviesHeader {
     height: 100%;
     width: 100%;
 }
@@ -103,7 +118,7 @@ margin-right: 2%;
     flex-wrap: wrap;
     size: 10%;
     margin-top: 0;
-    background-color:#829460;
+    background-color: #829460;
 }
 
 
@@ -122,7 +137,7 @@ margin-right: 2%;
     font-size: xx-large;
     width: 15%;
     padding: 8px 60px;
-    border-radius: 15px ;
+    border-radius: 15px;
     border: solid 5px #829460;
     opacity: 80%;
     margin-left: 3%;
@@ -152,13 +167,13 @@ margin-right: 2%;
 }
 
 .filmDivs {
-    display:flexbox;
+    display: flexbox;
     width: 20%;
-    border: 8px solid  #a9b690;
-    border-spacing: 50% ;
+    border: 8px solid #a9b690;
+    border-spacing: 50%;
     border-radius: 10%;
     margin-left: 9.5%;
-    margin-top: 4% ;
+    margin-top: 4%;
     justify-content: center;
     background-color: #EEEEEE;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
@@ -170,10 +185,10 @@ margin-right: 2%;
     font-size: x-large;
     text-justify: center;
     margin-left: 13%;
-    margin-right:13%;
+    margin-right: 13%;
     margin-top: 0%;
     margin-bottom: 0%;
-    
+
 }
 
 
@@ -207,34 +222,42 @@ margin-right: 2%;
     display: none;
     flex-wrap: wrap;
 }
-#moreHeader{
+
+#moreHeader {
     display: none;
 }
-#moreHeaderImage{
+
+#moreHeaderImage {
     width: 100%;
 }
-#moreSection{
+
+#moreSection {
     display: none;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
 }
-.more-Images{
+
+.more-Images {
     width: 90%;
     height: 80%;
     margin: auto;
 }
 
-.moreText{
+.moreText {
     color: #514E46;
     font-size: xx-large;
     text-justify: center;
+    margin: auto;
 }
-.moreDivs{
+
+.moreDivs {
+    display: flex;
+    flex-wrap: wrap;
     width: 30%;
-    margin:1%;
+    margin: 1%;
     text-align: center;
 }
 
-#charactersZone{
+#charactersZone {
     display: none;
     background-color: #EEEEEE;
     flex-wrap: wrap;
@@ -242,18 +265,21 @@ margin-right: 2%;
 }
 
 
-#characterHeaderSection{
+#characterHeaderSection {
     display: none;
 
 }
-#characterHeader{
+
+#characterHeader {
     width: 100%;
 }
-#characterImage{
+
+#characterImage {
     width: 100%;
     height: 100%;
 }
-.characterContent{
+
+.characterContent {
     display: none;
 }
 
@@ -271,11 +297,15 @@ margin-right: 2%;
     display: none;
     height: 90%;
     text-align: center;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 0.2fr 0.2fr;
 }
+
 .divQuestion {
-    width: 33%;
+    width: 100%;
     height: 80%;
-    margin:1%;
+    margin: 1%;
+
 }
 
 .question {
@@ -288,6 +318,7 @@ margin-right: 2%;
     margin: auto;
 
 }
+
 .Answer {
     width: 60%;
     height: 15%;
@@ -295,8 +326,13 @@ margin-right: 2%;
     font-size: x-large;
     text-align: center;
     background-color: #f0f6f7;
+    font-family: 'Patrick Hand', cursive;
+    font-size: x-large;
+    color: #514E46;
+
 }
-.answerText{
+
+.answerText {
     padding: 2%;
     width: 50%;
     text-align: center;
@@ -304,9 +340,33 @@ margin-right: 2%;
     font-size: x-large;
     height: auto;
     margin: auto;
+
+
+}
+
+#triviaAgain {
+    margin: auto;
+    width: 40%;
+    height: 65%;
+    grid-column: 2;
+    grid-row: 2;
+    font-family: 'Patrick Hand', cursive;
+    font-size: x-large;
+    color: #514E46;
 }
 
 footer {
-    display:flex ;
+    display: flex;
     justify-content: flex-end;
+}
+
+@media only screen and (max-width: 700px) {
+    .moreDivs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 500px;
+        margin: 1%;
+        text-align: center;
+        background-color: aquamarine;
+    }
 }

@@ -29,7 +29,7 @@
 
 
   <nav id="buttonZone">
-    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <button class = "refreshButton" id = "refreshHome"> <img src="Vector.png" class="homePng" alt="home-icon"> </button>
     <button class="homeButtons" id="about"> About</button>
     <button class="homeButtons" id="movies"> Movies </button>
     <button class="homeButtons" id="characters"> Characters </button>
@@ -63,7 +63,7 @@
   </section>
 
   <section class="content" id="content">
-    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <button class = "refreshButton" id = "refreshMovies"> <img src="Vector.png" class="homePng" alt="home-icon"></button>
     <p class="filterText">Filter by: </p>
     <select class="Filtros" name="Directores" id="Directores">
       <option disabled selected class="options">Directors</option>
@@ -103,7 +103,7 @@
   </section>
 
   <section class="content" id="characterContent">
-    <div> <img src="Vector.png" class="homePng" alt="home-icon"></div>
+    <button class = "refreshButton" id = "refreshCharacters"> <img src="Vector.png" class="homePng" alt="home-icon"></button>
     <p class="filterText">Filter by: </p>
 
     <select class="Filtros" name="Movies" id="characterMovies">
@@ -160,7 +160,6 @@
 
 
   <section id="triviaSection">
-
     <div class="divQuestion">
       <p class="question">Are there more male or female characters in the Ghibli universe?</p>
       <button class="Answer" id="rightAnswerOne"> More Males</button>
@@ -181,9 +180,9 @@
       <button class="Answer" id="wrongAnswerThree"> Young</button>
       <p class="answerText" id="answerThree"></p>
     </div>
-
+    <button id ="triviaAgain"> Take the trivia again</button>
   </section>
-
+  
 
 
   <section id="moreSection">

@@ -20,6 +20,21 @@ const rightAnswerTwo = document.getElementById("rightAnswerTwo");
 const wrongAnswerTwo = document.getElementById("wrongAnswerTwo");
 const rightAnswerThree = document.getElementById("rightAnswerThree");
 const wrongAnswerThree = document.getElementById("wrongAnswerThree");
+const refreshHome = document.getElementById("refreshHome");
+const refreshMovies = document.getElementById("refreshMovies");
+const refreshCharacters = document.getElementById("refreshCharacters");
+const triviaAgain = document.getElementById("triviaAgain");
+
+refreshHome.addEventListener("click", function () {
+  history.go(0)
+})
+refreshMovies.addEventListener("click", function () {
+  history.go(0)
+})
+
+refreshCharacters.addEventListener("click", function () {
+  history.go(0)
+})
 
 about.addEventListener("click", function () {
   document.getElementById("aboutHeader").style.display = "flex";
@@ -45,6 +60,9 @@ movies.addEventListener("click", function () {
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
   document.getElementById("moreHeader").style.display = "none";
+  document.getElementById("triviaSection").style.display = "none";
+  document.getElementById("triviaHeader").style.display = "none";
+  document.getElementById("moreSection").style.display = "none";
 })
 
 more.addEventListener("click", function () {
@@ -66,7 +84,11 @@ characters.addEventListener("click", function () {
   document.getElementById("characterContent").style.display = "flex";
   document.getElementById("charactersZone").style.display = "flex";
   document.getElementById("triviaHeader").style.display = "none";
-
+  document.getElementById("triviaSection").style.display = "none";
+  document.getElementById("moreHeader").style.display = "none";
+  document.getElementById("aboutHeader").style.display = "none";
+  document.getElementById("aboutSection").style.display = "none";
+  document.getElementById("moreSection").style.display = "none";
 })
 
 
@@ -81,7 +103,7 @@ trivia.addEventListener("click", function () {
   document.getElementById("moreHeader").style.display = "none";
   document.getElementById("moreSection").style.display = "none";
   document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("triviaSection").style.display = "flex";
+  document.getElementById("triviaSection").style.display = "grid";
   document.getElementById("triviaHeader").style.display = "flex";
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
@@ -92,11 +114,12 @@ trivia.addEventListener("click", function () {
 
 //constructor de objetos para seleccionar datos a mostrar
 class titleAndPoster {
-  constructor(title, poster, director, release_date, rt_score) {
+  constructor(title, poster, director, producer, release_date, rt_score) {
     //"this" indica el objeto en concreto que se utilizará (o algo así)
     this.poster = createImage(poster);
     this.title = createText("Title: " + "'" + title + "'");
     this.director = createText("Director: " + director);
+    this.producer = createText("Producer: " + producer);
     this.release_date = createText("Release date: " + release_date);
     this.rt_score = createText("Score: " + rt_score);
 
@@ -121,7 +144,7 @@ class showCharacters {
 //llamar los datos
 data.films
   //creamos un array de objetos con los datos que queremos sacar.
-  .map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  .map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
   //creamos otro array con etiquetas (div)
   .map(Element => divCreator(Element))
   //mostrar los objetos en una sección particular del HTML.
@@ -145,6 +168,7 @@ function infoDivCreator(x) {
   //al div creado le agregamos hijos con información tipo texto
   movieDivHover.appendChild(x.title);
   movieDivHover.appendChild(x.director);
+  movieDivHover.appendChild(x.producer);
   movieDivHover.appendChild(x.release_date);
   movieDivHover.appendChild(x.rt_score);
   return movieDivHover
@@ -215,10 +239,13 @@ function createText(textMovie) {
 
 //agregamos el evento para que al seleccionar el director que quiere se dispare
 //la función de filtrar
+let directorArray;
+let producerArray;
 directores.addEventListener("change", function () {
   filterSection.innerHTML = "";
-  const directorNuevo = filterDirector(directores.value, data);
-  directorNuevo.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  const filteredByDirector = filterDirector(directores.value, data);
+  directorArray = filteredByDirector;
+  filteredByDirector.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     .map(Element => divCreator(Element))
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
@@ -227,13 +254,16 @@ directores.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
+
 productores.addEventListener("change", function () {
+  const dataBase = directorArray ? directorArray : data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const producerNuevo = filterProducer(productores.value, data);
+  const filteredByProducer = filterProducer(productores.value, dataBase);
+  producerArray = filteredByProducer
   //devuelve un array con objetos del resultado del filtro
-  producerNuevo.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
+  filteredByProducer.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     //crea array con los divs 
     .map(Element => divCreator(Element))
     //poner los divs en pantalla
@@ -243,9 +273,30 @@ productores.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
+
+añoDeEstreno.addEventListener("change", function () {
+  const dataSort1 = producerArray?producerArray:data.films || directorArray? directorArray:data.films;
+  filterSection.innerHTML = "";
+  //utilizar la funcion filtrar
+  const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort1);
+  //devuelve un array con objetos del resultado del filtro
+  nuevoOrden.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
+    //crea array con los divs 
+    .map(Element => divCreator(Element))
+    //poner los divs en pantalla
+    .forEach(Element => filterSection.appendChild(Element))
+  //ocultar la pantalla de inicio al usar el filtro
+  document.getElementById("filmsZone").style.display = "none";
+  //deberia mostrar el resultado del filtro
+  document.getElementById("filterSection").style.display = "flex";
+})
+
+let movieArray;
+let specieArray;
 characterMovies.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const characterPerMovie = characterMovie(characterMovies.value, data);
+  movieArray = characterPerMovie
   characterPerMovie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
@@ -255,12 +306,14 @@ characterMovies.addEventListener("change", function () {
 
 
 especie.addEventListener("change", function () {
+  const dataBase = movieArray? movieArray:data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const especieNueva = filterSpecies(especie.value, data);
+  const filteredBySpecie = filterSpecies(especie.value, dataBase);
+  specieArray = filteredBySpecie
   //devuelve un array con objetos del resultado del filtro
-  especieNueva.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
+  filteredBySpecie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     //crea array con los divs 
     .map(Element => divCreatorCharacter(Element))
     //poner los divs en pantalla
@@ -272,8 +325,9 @@ especie.addEventListener("change", function () {
 })
 
 sortAZ.addEventListener("change", function () {
+  const dataBase = specieArray? specieArray:data.films;
   filterSection.innerHTML = "";
-  const characterSortAZ = functionSortAZ(sortAZ.value, data);
+  const characterSortAZ = functionSortAZ(sortAZ.value, dataBase);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
@@ -281,22 +335,6 @@ sortAZ.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
-añoDeEstreno.addEventListener("change", function () {
-  //limpiar la pagina
-  filterSection.innerHTML = "";
-  //utilizar la funcion filtrar
-  const nuevoOrden = sortDataYear(añoDeEstreno.value, data);
-  //devuelve un array con objetos del resultado del filtro
-  nuevoOrden.map(film => new titleAndPoster(film.title, film.poster, film.director, film.release_date, film.rt_score))
-    //crea array con los divs 
-    .map(Element => divCreator(Element))
-    //poner los divs en pantalla
-    .forEach(Element => filterSection.appendChild(Element))
-  //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("filmsZone").style.display = "none";
-  //deberia mostrar el resultado del filtro
-  document.getElementById("filterSection").style.display = "flex";
-})
 
 rightAnswerOne.addEventListener("click", function () {
   document.getElementById("answerOne").innerText = genderTrivia(data);
@@ -333,5 +371,14 @@ wrongAnswerThree.addEventListener("click", function () {
   document.getElementById("answerThree").innerText = ageTrivia(data);
   rightAnswerThree.style.backgroundColor = "#7EDE87"
   wrongAnswerThree.style.backgroundColor = "#DF5555";
+})
+
+triviaAgain.addEventListener("click", function () {
+  for (let i = 0; i < 6; i++) {
+    document.getElementsByClassName("Answer")[i].style.backgroundColor = "#f0f6f7";
+  }
+  for (let i = 0; i < 3; i++) {
+    document.getElementsByClassName("answerText")[i].innerText = "";
+  }
 })
 
