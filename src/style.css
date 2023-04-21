@@ -360,18 +360,39 @@ footer {
     justify-content: flex-end;
 }
 
-@media only screen and (max-width: 600px ) {
-    .moreDivs {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
+@media only screen and (max-width: 600px) {
+    .refreshButton {
+        justify-content: center;
     }
+
+    #homeHeader {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    #header-content {
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+
+    .homePng {
+        width: 25px;
+        margin-left: 10px;
+        padding-top: 0%;
+        margin-right: 40px;
+    }
+
     nav {
         display: flex;
         flex-wrap: wrap;
         background-color: #829460;
         height: 3%;
         align-items: center;
+        justify-content: center;
     }
 
     .homeButtons {
@@ -381,8 +402,122 @@ footer {
         border-radius: 5px;
         border: solid 5px #829460;
         opacity: 80%;
-        margin-left: 3%;
+        margin-left: 0%;
         color: #514E46;
         background-color: #D9DFCF;
+        justify-content: center;
+
     }
-     }
+
+    .welcome-Text {
+        width: 100%;
+        padding-top: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: center;
+        font-size: large;
+        color: #514E46;
+    }
+
+    .home-Content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #home-Collage {
+        margin-left: 10%;
+        width: 100%;
+        padding: 30px;
+        padding-bottom: 0px;
+        padding-top: 5px;
+
+    }
+
+    #aboutHeader {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    #aboutHeaderImage {
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+
+    #aboutSection {
+        display: none;
+        flex-wrap: wrap;
+    }
+
+    #aboutCollage {
+        margin: auto;
+        width: 100%;
+        padding: 30px;
+        padding-bottom: 0px;
+        padding-top: 5px;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #moreHeaderImage {
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden;
+    }
+
+    #moreSection {
+        display: none;
+        flex-wrap: wrap;
+    }
+
+
+    .moreDivs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-right: 50px;
+        padding-left: 50px;
+        padding-top: 5px;
+    }
+
+    .moreText {
+        color: #514E46;
+        font-size: large;
+        text-justify: center;
+        margin: auto;
+    }
+
+
+
+
+
+
+    
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    #footerImage {
+        width: 45%;
+    }
+
+
+}
