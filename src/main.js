@@ -241,6 +241,7 @@ function createText(textMovie) {
 //la función de filtrar
 let directorArray;
 let producerArray;
+//let films = data.films;
 directores.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const filteredByDirector = filterDirector(directores.value, data);
@@ -252,6 +253,9 @@ directores.addEventListener("change", function () {
   document.getElementById("filmsZone").style.display = "none";
   //deberia mostrar el resultado del filtro
   document.getElementById("filterSection").style.display = "flex";
+  productores.value = "Producers"
+  
+
 })
 
 
@@ -271,11 +275,13 @@ productores.addEventListener("change", function () {
   //ocultar la pantalla de inicio al usar el filtro
   document.getElementById("filmsZone").style.display = "none";
   document.getElementById("filterSection").style.display = "flex";
+  
 })
 
 
 añoDeEstreno.addEventListener("change", function () {
-  const dataSort1 = producerArray?producerArray:data.films || directorArray? directorArray:data.films;
+  const dataSort1 = productores.value === "Producers"? directorArray:producerArray;
+  //const dataSort2 = directorArray?directorArray:data.films;
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
   const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort1);
