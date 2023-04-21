@@ -276,12 +276,6 @@ productores.addEventListener("change", function () {
 
 añoDeEstreno.addEventListener("change", function () {
   const dataSort1 = producerArray?producerArray:data.films || directorArray? directorArray:data.films;
-  //const dataSort2 = producerArray?producerArray:data.films; directorArray === "false"? directorArray:producerArray;
-  //const dataSort3 = producerArray=== "false"?producerArray:directorArray; directorArray ? directorArray:data.films;
-
-  // const elegido = dataSort1?dataSort1:
-
-  //console.log(dataSort1 , dataSort2, dataSort3);
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
   const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort1);
@@ -297,9 +291,12 @@ añoDeEstreno.addEventListener("change", function () {
   document.getElementById("filterSection").style.display = "flex";
 })
 
+let movieArray;
+let specieArray;
 characterMovies.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const characterPerMovie = characterMovie(characterMovies.value, data);
+  movieArray = characterPerMovie
   characterPerMovie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
@@ -309,12 +306,14 @@ characterMovies.addEventListener("change", function () {
 
 
 especie.addEventListener("change", function () {
+  const dataBase = movieArray? movieArray:data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const especieNueva = filterSpecies(especie.value, data);
+  const filteredBySpecie = filterSpecies(especie.value, dataBase);
+  specieArray = filteredBySpecie
   //devuelve un array con objetos del resultado del filtro
-  especieNueva.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
+  filteredBySpecie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     //crea array con los divs 
     .map(Element => divCreatorCharacter(Element))
     //poner los divs en pantalla
@@ -326,8 +325,9 @@ especie.addEventListener("change", function () {
 })
 
 sortAZ.addEventListener("change", function () {
+  const dataBase = specieArray? specieArray:data.films;
   filterSection.innerHTML = "";
-  const characterSortAZ = functionSortAZ(sortAZ.value, data);
+  const characterSortAZ = functionSortAZ(sortAZ.value, dataBase);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
