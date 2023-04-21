@@ -361,10 +361,47 @@ footer {
 }
 
 @media only screen and (max-width: 600px ) {
+    .refreshButton {
+        justify-content: center;
+    }
+
+    #header-content {
+        width: 550px;
+        height: 100px;
+        margin-left: -80px;
+    }
+
+    .homePng {
+        width: 25px;
+        margin-left: 10px;
+        padding-top: 0%;
+    }
+
+
     .moreDivs {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        background-color: aquamarine;
     }
-}
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #829460;
+        height: 3%;
+        align-items: center;
+    }
+
+    .homeButtons {
+        font-family: 'Patrick Hand', cursive;
+        font-size: small;
+        width: 5%;
+        border-radius: 5px;
+        border: solid 5px #829460;
+        opacity: 80%;
+        margin-left: 0%;
+        color: #514E46;
+        background-color: #D9DFCF;
+    }
+
+
+     }

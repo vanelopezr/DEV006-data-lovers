@@ -30,10 +30,15 @@ refreshHome.addEventListener("click", function () {
 })
 refreshMovies.addEventListener("click", function () {
   history.go(0)
+  productores.value = "Producers"
+  directores.value = "directors"
 })
 
 refreshCharacters.addEventListener("click", function () {
   history.go(0)
+  characterMovies.value = "movies"
+  especie.value = "specie"
+
 })
 
 about.addEventListener("click", function () {
@@ -241,6 +246,7 @@ function createText(textMovie) {
 //la función de filtrar
 let directorArray;
 let producerArray;
+//let films = data.films;
 directores.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const filteredByDirector = filterDirector(directores.value, data);
@@ -252,6 +258,9 @@ directores.addEventListener("change", function () {
   document.getElementById("filmsZone").style.display = "none";
   //deberia mostrar el resultado del filtro
   document.getElementById("filterSection").style.display = "flex";
+  productores.value = "Producers"
+  
+
 })
 
 
@@ -271,11 +280,13 @@ productores.addEventListener("change", function () {
   //ocultar la pantalla de inicio al usar el filtro
   document.getElementById("filmsZone").style.display = "none";
   document.getElementById("filterSection").style.display = "flex";
+  
 })
 
 
 añoDeEstreno.addEventListener("change", function () {
-  const dataSort1 = producerArray?producerArray:data.films || directorArray? directorArray:data.films;
+  const dataSort1 = productores.value === "Producers"? directorArray:producerArray;
+  //const dataSort2 = directorArray?directorArray:data.films;
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
   const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort1);
@@ -302,6 +313,7 @@ characterMovies.addEventListener("change", function () {
     .forEach(Element => filterSection.appendChild(Element))
   document.getElementById("charactersZone").style.display = "none";
   document.getElementById("filterSection").style.display = "flex";
+  especie.value = "specie"
 })
 
 
@@ -325,9 +337,9 @@ especie.addEventListener("change", function () {
 })
 
 sortAZ.addEventListener("change", function () {
-  const dataBase = specieArray? specieArray:data.films;
+  const dataSort1 = especie.value === "specie"? movieArray:specieArray;
   filterSection.innerHTML = "";
-  const characterSortAZ = functionSortAZ(sortAZ.value, dataBase);
+  const characterSortAZ = functionSortAZ(sortAZ.value, dataSort1);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
