@@ -360,13 +360,11 @@ footer {
     justify-content: flex-end;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px ) {
     .moreDivs {
         display: flex;
         flex-wrap: wrap;
-        width: 500px;
-        margin: 1%;
-        text-align: center;
+        width: 100%;
         background-color: aquamarine;
     }
 }
