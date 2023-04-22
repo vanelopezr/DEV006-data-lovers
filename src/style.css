@@ -471,6 +471,31 @@ footer {
         margin-left: 0px;
         overflow: hidden;
     }
+    #content{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .filterText{
+        margin-left: 5%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: large;
+
+    }
+
+    .Filtros{
+        font-family: 'Patrick Hand', cursive;
+        font-size: small;
+        width: 5%;
+        border-radius: 5px;
+        border: solid 5px #829460;
+        opacity: 80%;
+        margin-left: 0%;
+        color: #514E46;
+        background-color: #D9DFCF;
+        justify-content: center;
+    }
 
     .filmDivs {
         width: 70%;
@@ -501,7 +526,19 @@ footer {
         border-radius: 5%;
     }
 
+    #characterHeader{
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
 
+    #characterImage{
+        width: 560px;
+        height: 160px;
+        object-fit: cover;
+        margin-left: 0px;
+        overflow: hidden; 
+    }
 
 
 
