@@ -484,8 +484,8 @@ footer {
     }
 
     #home-Collage {
-        width: 95%;
-        text-align: center;
+        width: 300px;
+        margin-left: 60px;
         padding-top: 5px;
 
     }
@@ -510,8 +510,8 @@ footer {
     }
 
     #aboutCollage {
-        width: 95%;
-        justify-content: center;
+        width: 300px;
+        margin-left: 60px;
         padding-top: 5px;
 
     }
