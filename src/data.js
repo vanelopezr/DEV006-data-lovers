@@ -79,8 +79,8 @@ export const genderTrivia = (data) => {
   const genderNA = peopleMap.filter(people => ["NA", "Unknown (Possible Male)"].includes(people.gender))
   const naPercent = Math.round((genderNA.length * 100) / peopleMap.length);
 
-  const answerOneDone = "The male percent is higher with " + malePercent +
-    "%, the female percent is " + femalePercent + "% and there is only  " + naPercent + "% of unknown genders."
+  const answerOneDone = malePercent + " % of the characters are males, "+ femalePercent +
+  "% are females, and "  + naPercent + "% of the characters have unknown genders."
 
   return answerOneDone;
 }
@@ -94,7 +94,7 @@ export const specieTrivia = (data) => {
   const cats = peopleMap.filter(people => people.specie === "Cat");
   const catsPercent = Math.round((cats.length * 100) / peopleMap.length);
 
-  const answerTwoDone = "Cat is the second most common specie with " + catsPercent + "%, only " + witchPercent + "% are witches."
+  const answerTwoDone = "Cat is the second most common specie among Ghibli characters with " + catsPercent + "% and only " + witchPercent + "% of them are witches."
 
   return answerTwoDone
 }
@@ -117,6 +117,6 @@ export const ageTrivia = (data) => {
   const adults = 100 - (totalYoung + naPercent)
 
   const answerThreeDone = adults + "% of the characters are adults, " + totalYoung + "% are under 18 and " + naPercent
-    + "% are unknown."
+    + "% are of unknown age."
   return answerThreeDone
 }
