@@ -9,6 +9,14 @@ body {
     font-family: 'Patrick Hand', cursive;
 }
 
+.abrir-menu {
+    display: none;
+}
+
+.cerrar-menu {
+    display: none;
+}
+
 .refreshButton {
     background-color: #829460;
     border: none;
@@ -27,10 +35,16 @@ body {
 
 nav {
     background-color: #829460;
-    height: 3%;
     align-items: center;
     display: flex;
     align-items: flex-start;
+}
+
+.nav-buttons {
+
+    display: flex;
+    gap: 2%;
+    align-items: flex-end;
 }
 
 .homePng {
@@ -359,8 +373,15 @@ footer {
 
 @media only screen and (max-width: 600px) {
     .refreshButton {
-        justify-content: center;
+        background-color: transparent;
     }
+
+    .homePng {
+        width: 35px;
+        margin-left: 20px;
+        padding-top: 10px;
+    }
+
 
     #homeHeader {
         display: flex;
@@ -376,36 +397,73 @@ footer {
         overflow: hidden;
     }
 
-    .homePng {
-        width: 25px;
-        margin-left: 10px;
-        padding-top: 0%;
-        margin-right: 40px;
-    }
 
     nav {
         display: flex;
         flex-wrap: wrap;
         background-color: #829460;
-        height: 3%;
+        height: 50px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .abrir-menu ,   
+    .cerrar-menu {
+        display: block;
+        margin-block: auto;
+        background-color: transparent;
+        border: none;
+    }
+    .bi-list{
+        color: #D3D9DA;
+        margin-right: 17px;
+   }
+   .abrir-menu{
+    font-size: xx-large;
+   }
+
+   .bi-x{
+    color: #D3D9DA;
+   }
+    .cerrar-menu{
+        font-size: 2.8rem;
+    }
+    .nav-buttons{
+        opacity: 0;
+        visibility: hidden;
+    
+        display: none;
+        flex-direction: column;
+        position: relative;
+        background-color: #829460;
+        padding: 0 20px 0 20px;
+        margin-right: -11%;
+    }
+
+    .nav-buttons.visible{
+        opacity: 1;
+        visibility: visible;
+        padding-right: 50px;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-    }
 
+    }
     .homeButtons {
+
         font-family: 'Patrick Hand', cursive;
-        font-size: small;
-        width: 5%;
-        border-radius: 5px;
-        border: solid 5px #829460;
-        opacity: 80%;
+        font-size: xx-large;
+        width: auto;
+        padding: 0;
         margin-left: 0%;
-        color: #514E46;
-        background-color: #D9DFCF;
+        color: #f1efe5;
+        background-color:#829460;
         justify-content: center;
 
     }
-
     .welcome-Text {
         width: 100%;
         padding-top: 5%;
@@ -463,7 +521,7 @@ footer {
         width: 100%;
         height: 100%;
     }
-    
+
     #moviesHeader {
         width: 560px;
         height: 160px;
@@ -471,30 +529,34 @@ footer {
         margin-left: 0px;
         overflow: hidden;
     }
-    #content{
+
+    #refreshMovies{
+        margin-left: -7px;
+        margin-top: -2px;
+        margin-right: 65px;
+    }
+    #content {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
-    .filterText{
-        margin-left: 5%;
+
+    .filterText {
+        margin-left: 8%;
         margin-top: 10px;
         margin-bottom: 10px;
         font-size: large;
+        margin-right: auto;
 
     }
 
-    .Filtros{
-        font-family: 'Patrick Hand', cursive;
+    .Filtros {
         font-size: small;
-        width: 5%;
-        border-radius: 5px;
-        border: solid 5px #829460;
-        opacity: 80%;
-        margin-left: 0%;
-        color: #514E46;
-        background-color: #D9DFCF;
-        justify-content: center;
+        padding: 0;
+        width: 30%;
+        height: 30px;
+        text-align: end;
+        margin: 0 20% 0 20%;
     }
 
     .filmDivs {
@@ -506,12 +568,13 @@ footer {
         justify-content: center;
         background-color: #EEEEEE;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-    
+
     }
+
     .infoText {
         color: #514E46;
         font-size: medium;
-        text-align:center;
+        text-align: center;
         margin-left: 13%;
         margin-right: 13%;
         margin-top: 0%;
@@ -526,18 +589,18 @@ footer {
         border-radius: 5%;
     }
 
-    #characterHeader{
+    #characterHeader {
         display: flex;
         width: 100%;
         height: 100%;
     }
 
-    #characterImage{
+    #characterImage {
         width: 560px;
         height: 160px;
         object-fit: cover;
         margin-left: 0px;
-        overflow: hidden; 
+        overflow: hidden;
     }
 
 
@@ -550,12 +613,15 @@ footer {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
     }
+
     #q1 {
         grid-row: 1;
     }
+
     #q2 {
         grid-row: 2;
     }
+
     #q3 {
         grid-row: 3;
     }
