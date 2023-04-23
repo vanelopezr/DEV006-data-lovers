@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ghibli Club</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
 <body id="body">
@@ -30,12 +31,18 @@
 
 
   <nav id="buttonZone">
-    <button class = "refreshButton" id = "refreshHome"> <img src="Vector.png" class="homePng" alt="home-icon"> </button>
-    <button class="homeButtons" id="about"> About</button>
-    <button class="homeButtons" id="movies"> Movies </button>
-    <button class="homeButtons" id="characters"> Characters </button>
-    <button class="homeButtons" id="trivia"> Trivia </button>
-    <button class="homeButtons" id="more"> More </button>
+    <button class="refreshButton" id="refreshHome"> <img src="Vector.png" class="homePng" alt="home-icon"> </button>
+    <button class="abrir-menu" id="abrir-menu"><i class="bi bi-list"></i> </button>
+    <div class="nav-buttons" id="nav-buttons">
+      <button class="cerrar-menu" id="cerrar-menu"><i class="bi bi-x"></i></button>
+      <div class="nav-list">
+        <button class="homeButtons" id="about"> About</button>
+        <button class="homeButtons" id="movies"> Movies </button>
+        <button class="homeButtons" id="characters"> Characters </button>
+        <button class="homeButtons" id="trivia"> Trivia </button>
+        <button class="homeButtons" id="more"> More </button>
+      </div>
+    </div>
   </nav>
   <section class="home-Content" id="home-Content">
     <img id="home-Collage" src="Group 12.png" alt="Image-home">
@@ -50,12 +57,17 @@
   </section>
 
 
-  <section id = "aboutSection">
+  <section id="aboutSection">
     <div class="welcome-Text">
-      <p>Studio Ghibli, acclaimed Japanese animation studio was founded in 1985 by animators and directors Miyazaki Hayao, Takahata Isao and producer Suzuki Toshio.
-        Studio Ghibli is known for the high quality of its filmmaking and its artistry. Its feature films have won both critical and popular praise and had also influenced other animation studios.</p>
+      <p>Studio Ghibli, acclaimed Japanese animation studio was founded in 1985 by animators and directors Miyazaki
+        Hayao,
+        Takahata Isao and producer Suzuki Toshio. Studio Ghibli is known for the high quality of its filmmaking and its
+        artistry. <br>
+        <br>
+        Its feature films have won both critical and popular praise and have also influenced other animation studios.
+      </p>
     </div>
-    <img id = "aboutCollage" src="Group 22.png" alt="about-Image">
+    <img id="aboutCollage" src="Group 22.png" alt="about-Image">
   </section>
 
 
@@ -64,10 +76,10 @@
   </section>
 
   <section class="content" id="content">
-    <button class = "refreshButton" id = "refreshMovies"> <img src="Vector.png" class="homePng" alt="home-icon"></button>
+    <button class="refreshButton" id="refreshMovies"> <img src="Vector.png" class="homePng" alt="home-icon"></button>
     <p class="filterText">Filter by: </p>
     <select class="Filtros" name="Directores" id="Directores">
-      <option disabled selected class="options" value = "directors">Directors</option>
+      <option disabled selected class="options" value="directors">Directors</option>
       <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
       <option value="Isao Takahata" class="options">Isao Takahata</option>
       <option value="Yoshifumi Kondō" class="options">Yoshifumi Kondō</option>
@@ -77,7 +89,7 @@
     </select>
 
     <select class="Filtros" name="Productores" id="Productores">
-      <option disabled selected class="options" value ="Producers">Producers</option>
+      <option disabled selected class="options" value="Producers">Producers</option>
       <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
       <option value="Isao Takahata" class="options">Isao Takahata</option>
       <option value="Toru Hara" class="options">Toru Hara</option>
@@ -105,11 +117,12 @@
   </section>
 
   <section class="content" id="characterContent">
-    <button class = "refreshButton" id = "refreshCharacters"> <img src="Vector.png" class="homePng" alt="home-icon"></button>
+    <button class="refreshButton" id="refreshCharacters"> <img src="Vector.png" class="homePng"
+        alt="home-icon"></button>
     <p class="filterText">Filter by: </p>
 
     <select class="Filtros" name="Movies" id="characterMovies">
-      <option disabled selected value = "movies">Movies</option>
+      <option disabled selected value="movies">Movies</option>
       <option value="Castle in the Sky" class="options">Castle in the Sky</option>
       <option value="My Neighbor Totoro" class="options">My Neighbor Totoro</option>
       <option value="Kiki's Delivery Service" class="options">Kiki's Delivery Service</option>
@@ -133,7 +146,7 @@
     </select>
 
     <select class="Filtros" name="Especie" id="Especie">
-      <option disabled selected value = "specie">Specie</option>
+      <option disabled selected value="specie">Specie</option>
       <option value="Human" class="options">Humans</option>
       <option value="Witch" class="options">Witches</option>
       <option value="Cat" class="options">Cats</option>
@@ -158,33 +171,33 @@
   </section>
 
   <section class="filterSection" id="filterSection"></section>
-  </section>
+
 
 
   <section id="triviaSection">
-    <div class="divQuestion">
+    <div class="divQuestion" id="q1">
       <p class="question">Are there more male or female characters in the Ghibli universe?</p>
       <button class="Answer" id="rightAnswerOne"> More Males</button>
-      <button class="Answer"  id="wrongAnswerOne"> More Females</button>
+      <button class="Answer" id="wrongAnswerOne"> More Females</button>
       <p class="answerText" id="answerOne"></p>
     </div>
 
-    <div class="divQuestion">
+    <div class="divQuestion" id="q2">
       <p class="question">Besides humans, which specie is the most common one?</p>
       <button class="Answer" id="wrongAnswerTwo"> Witches</button>
       <button class="Answer" id="rightAnswerTwo"> Cats</button>
       <p class="answerText" id="answerTwo"></p>
     </div>
 
-    <div class="divQuestion">
+    <div class="divQuestion" id="q3">
       <p class="question">Studio Ghibli has more adult or young characters in their movies?</p>
       <button class="Answer" id="rightAnswerThree"> Adult</button>
       <button class="Answer" id="wrongAnswerThree"> Young</button>
       <p class="answerText" id="answerThree"></p>
     </div>
-    <button id ="triviaAgain"> Take the trivia again</button>
+    <button id="triviaAgain"> Take the trivia again</button>
   </section>
-  
+
 
 
   <section id="moreSection">

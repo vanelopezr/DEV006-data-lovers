@@ -24,6 +24,23 @@ const refreshHome = document.getElementById("refreshHome");
 const refreshMovies = document.getElementById("refreshMovies");
 const refreshCharacters = document.getElementById("refreshCharacters");
 const triviaAgain = document.getElementById("triviaAgain");
+const navButtons = document.getElementById("nav-buttons");
+const abrirMenu = document.getElementById("abrir-menu");
+const cerrarMenu = document.getElementById("cerrar-menu");
+
+
+abrirMenu.addEventListener("click", function () {
+  navButtons.classList.add("visible");
+  navButtons.style.display = "flex";
+  abrirMenu.style.display = "none";
+
+})
+
+cerrarMenu.addEventListener("click", function () {
+  navButtons.classList.remove("visible");
+  navButtons.style.display = "none";
+  abrirMenu.style.display = "block";
+})
 
 refreshHome.addEventListener("click", function () {
   history.go(0)
@@ -52,6 +69,7 @@ about.addEventListener("click", function () {
   document.getElementById("triviaSection").style.display = "none";
   document.getElementById("triviaHeader").style.display = "none";
   document.getElementById("movieHeaderSection").style.display = "none";
+
 })
 
 movies.addEventListener("click", function () {
@@ -68,6 +86,7 @@ movies.addEventListener("click", function () {
   document.getElementById("triviaSection").style.display = "none";
   document.getElementById("triviaHeader").style.display = "none";
   document.getElementById("moreSection").style.display = "none";
+
 })
 
 more.addEventListener("click", function () {
@@ -79,6 +98,7 @@ more.addEventListener("click", function () {
   document.getElementById("triviaHeader").style.display = "none";
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
+
 })
 
 characters.addEventListener("click", function () {
@@ -94,6 +114,7 @@ characters.addEventListener("click", function () {
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
   document.getElementById("moreSection").style.display = "none";
+
 })
 
 
@@ -112,6 +133,7 @@ trivia.addEventListener("click", function () {
   document.getElementById("triviaHeader").style.display = "flex";
   document.getElementById("aboutHeader").style.display = "none";
   document.getElementById("aboutSection").style.display = "none";
+
 
 
 })
@@ -259,7 +281,7 @@ directores.addEventListener("change", function () {
   //deberia mostrar el resultado del filtro
   document.getElementById("filterSection").style.display = "flex";
   productores.value = "Producers"
-  
+
 
 })
 
@@ -280,12 +302,12 @@ productores.addEventListener("change", function () {
   //ocultar la pantalla de inicio al usar el filtro
   document.getElementById("filmsZone").style.display = "none";
   document.getElementById("filterSection").style.display = "flex";
-  
+
 })
 
 
 añoDeEstreno.addEventListener("change", function () {
-  const dataSort1 = productores.value === "Producers"? directorArray:producerArray;
+  const dataSort1 = productores.value === "Producers" ? directorArray : producerArray;
   //const dataSort2 = directorArray?directorArray:data.films;
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
@@ -318,7 +340,7 @@ characterMovies.addEventListener("change", function () {
 
 
 especie.addEventListener("change", function () {
-  const dataBase = movieArray? movieArray:data.films;
+  const dataBase = movieArray ? movieArray : data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
@@ -337,7 +359,7 @@ especie.addEventListener("change", function () {
 })
 
 sortAZ.addEventListener("change", function () {
-  const dataSort1 = especie.value === "specie"? movieArray:specieArray;
+  const dataSort1 = especie.value === "specie" ? movieArray : specieArray;
   filterSection.innerHTML = "";
   const characterSortAZ = functionSortAZ(sortAZ.value, dataSort1);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
