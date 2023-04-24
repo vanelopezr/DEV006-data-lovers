@@ -87,7 +87,7 @@ nav {
     font-family: 'Patrick Hand', cursive;
     font-size: xx-large;
     width: 15%;
-    padding: 8px 100px;
+    padding: 8px ;
     border-radius: 15px;
     border: solid 5px #829460;
     opacity: 80%;
@@ -395,7 +395,7 @@ footer {
     justify-content: flex-end;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 558px) {
     .refreshButton {
         background-color: transparent;
         width: 50px;
@@ -451,6 +451,7 @@ footer {
 
     .abrir-menu {
         font-size: xx-large;
+        margin-left: auto;
     }
 
     .bi-x {
@@ -479,6 +480,7 @@ footer {
         visibility: visible;
         align-items: flex-end;
         margin-left: auto;
+        padding: 0 10px 0 10px;
     }
 
     .nav-list {
@@ -498,6 +500,10 @@ footer {
         justify-content: center;
         align-items: flex-start;
 
+    }
+
+    #characters{
+        border: none;
     }
 
     .welcome-Text {
