@@ -12,9 +12,10 @@ export const filterProducer = (productores, data) => {
 
 
 
-export const sortDataYear = (ordenAs, data) => {
+export const sortDataYear = (sortBy, data) => {
   let orden = "";
-  if (ordenAs === "oldest") {
+
+  if (sortBy === "oldest") {
     orden = data.sort((x, y) => x.release_date - y.release_date)
   }
   else {
@@ -31,16 +32,17 @@ export const characterMovie = (characterMovies, data) => {
     .flatMap(element => element.people);
 
 }
+
 export const filterSpecies = (especie, data) => {
 
-
   if (especie !== "Else") {
-    return data.filter(element => element.specie === especie)
+
+    return data.filter(element => element.specie === especie);
   }
-  return data.filter(element => ["Wolf", "Red elk", "Deity", "Bird", "unknown", "Spirit of The White Fox", "Dragon", "Wizard", "Demon", "Human/Scarecrow", "Dog", "Arch-mage/Human", "Fish/Human"].includes(element.specie))
+
+  return data.filter(element => ["Wolf", "Red elk", "Deity", "Bird", "unknown", "Spirit of The White Fox", "Dragon", "Wizard", "Demon", "Human/Scarecrow", "Dog", "Arch-mage/Human", "Fish/Human"].includes(element.specie));
+
 };
-
-
 
 export const functionSortAZ = (sortAZ, data) => {
 
@@ -79,8 +81,8 @@ export const genderTrivia = (data) => {
   const genderNA = peopleMap.filter(people => ["NA", "Unknown (Possible Male)"].includes(people.gender))
   const naPercent = Math.round((genderNA.length * 100) / peopleMap.length);
 
-  const answerOneDone = malePercent + " % of the characters are males, "+ femalePercent +
-  "% are females, and "  + naPercent + "% of the characters have unknown genders."
+  const answerOneDone = malePercent + " % of the characters are males, " + femalePercent +
+    "% are females, and " + naPercent + "% of the characters have unknown genders."
 
   return answerOneDone;
 }

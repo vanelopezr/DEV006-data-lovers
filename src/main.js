@@ -329,7 +329,7 @@ let specieArray;
 characterMovies.addEventListener("change", function () {
   filterSection.innerHTML = "";
   const characterPerMovie = characterMovie(characterMovies.value, data);
-  movieArray = characterPerMovie
+  movieArray = characterPerMovie;
   characterPerMovie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
@@ -340,12 +340,12 @@ characterMovies.addEventListener("change", function () {
 
 
 especie.addEventListener("change", function () {
-  const dataBase = movieArray ? movieArray : data.films;
+  const dataBase = movieArray?movieArray:data.films.flatMap(element=> element.people);
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
   const filteredBySpecie = filterSpecies(especie.value, dataBase);
-  specieArray = filteredBySpecie
+  specieArray = filteredBySpecie;
   //devuelve un array con objetos del resultado del filtro
   filteredBySpecie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     //crea array con los divs 
