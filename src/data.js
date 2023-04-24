@@ -19,7 +19,7 @@ export const sortDataYear = (sortBy, data) => {
     orden = data.sort((x, y) => x.release_date - y.release_date)
   }
   else {
-    orden = data.sort((x, y) => x.release_date - y.release_date).reverse((x, y) => x.release_date - y.release_date)
+    orden = data.sort((x, y) => x.release_date - y.release_date).reverse();
   }
 
   return orden;
@@ -47,9 +47,12 @@ export const filterSpecies = (especie, data) => {
 export const functionSortAZ = (sortAZ, data) => {
 
   const AZ = data.sort(function (a, b) {
-    if (a.name < b.name) { return -1; }
-    if (a.name > b.name) { return 1; }
-    return 0;
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
   })
 
   if (sortAZ === "AZ") {
@@ -58,12 +61,7 @@ export const functionSortAZ = (sortAZ, data) => {
   }
 
   else {
-    const ZA = AZ.reverse((function (a, b) {
-      if (a.name < b.name) { return -1; }
-      if (a.name > b.name) { return 1; }
-      return 0;
-    }));
-
+    const ZA = AZ.reverse();
     return ZA
   }
 }

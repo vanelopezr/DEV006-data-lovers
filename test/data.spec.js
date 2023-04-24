@@ -81,9 +81,9 @@ describe('sortDataYear', () => {
       { release_date: "1991" }
     ]
 
-    expect(sortDataYear("oldest", entrada)).toStrictEqual(salida);
+    expect(sortDataYear("oldest", entrada)).toStrictEqual(salida2);
 
-    expect(sortDataYear("newest", entrada)).toStrictEqual(salida2);
+    expect(sortDataYear("newest", entrada)).toStrictEqual(salida);
   });
 });
 
@@ -134,6 +134,7 @@ describe('Test filterSpecies', () => {
     const entrada = [
       { name: "Jiji", specie: "Cat" },
       { name: "Kiki", specie: "Witch" },
+      { name: "Yakul", specie: "Red elk" },
       { name: "Okiyo", specie: "Raccoon Dog" }
     ]
 
@@ -141,7 +142,12 @@ describe('Test filterSpecies', () => {
       { name: "Jiji", specie: "Cat" }
     ]
 
+    const salida2 =[
+      { name: "Yakul", specie: "Red elk" }
+    ]
+
     expect(filterSpecies("Cat", entrada)).toStrictEqual(salida);
+    expect(filterSpecies("Else", entrada)).toStrictEqual(salida2);
   });
 });
 
