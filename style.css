@@ -403,6 +403,7 @@ footer {
         background-color: transparent;
         width: 70px;
         height: 50px;
+        text-align: center;
 
     }  
      .homePng {
@@ -417,6 +418,7 @@ footer {
         padding: 0px;
         margin: 0px;
         opacity: 80%;
+
         
     }
      #buttonZone {
