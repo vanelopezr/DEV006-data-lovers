@@ -1,4 +1,3 @@
-
 export const filterDirector = (directores, data) => {
   //filtro
   const directores1 = data.films.filter(films => films.director === directores)
@@ -40,7 +39,7 @@ export const filterSpecies = (especie, data) => {
     return data.filter(element => element.specie === especie);
   }
 
-  return data.filter(element => ["Wolf", "Red elk", "Deity", "Bird", "unknown", "Spirit of The White Fox", "Dragon", "Wizard", "Demon", "Human/Scarecrow", "Dog", "Arch-mage/Human", "Fish/Human"].includes(element.specie));
+  return data.filter(element => ["Wolf", "Red elk", "Deity", "Bird", "unknown", "Spirit of The White Fox", "Dragon", "Wizard", "Demon", "Human/Scarecrow", "Dog", "Arch-mage/Human", "Fish/Human", "Witch/Human"].includes(element.specie));
 
 };
 

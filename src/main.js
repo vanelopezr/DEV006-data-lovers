@@ -1,141 +1,154 @@
 import { filterDirector, sortDataYear, filterProducer, filterSpecies, characterMovie, functionSortAZ, genderTrivia, specieTrivia, ageTrivia } from './data.js';
 import data from './data/ghibli/ghibli.js';
-
+//llamaos a todos los elementos del html 
+const aboutHeader = document.getElementById("aboutHeader");
+const about = document.getElementById("about");
+const aboutSection = document.getElementById("aboutSection");
+const homeHeader = document.getElementById("homeHeader");
+const refreshHome = document.getElementById("refreshHome");
+const navButtons = document.getElementById("nav-buttons");
 const movies = document.getElementById("movies");
-const filterSection = document.getElementById("filterSection");
-//const filmsZone = document.getElementById("filmsZone")
-const directores = document.getElementById("Directores");
-const productores = document.getElementById("Productores");
-const añoDeEstreno = document.getElementById("añoDeEstreno");
-const more = document.getElementById("more");
+const homeContent = document.getElementById("home-Content");
+const refreshMovies = document.getElementById("refreshMovies");
+const filmsZone = document.getElementById("filmsZone")
+const directors = document.getElementById("directors");
+const producers = document.getElementById("producers");
+const releaseDate = document.getElementById("releaseDate");
+const refreshCharacters = document.getElementById("refreshCharacters");
 const characters = document.getElementById("characters");
-const especie = document.getElementById("Especie");
+const specie = document.getElementById("specie");
 const characterMovies = document.getElementById("characterMovies");
 const sortAZ = document.getElementById("sortAZ");
+const filterSection = document.getElementById("filterSection");
+const openMenu = document.getElementById("open-menu");
+const closeMenu = document.getElementById("close-menu");
+const moreHeader = document.getElementById("moreHeader")
+const more = document.getElementById("more");
+const moreSection = document.getElementById("moreSection");
 const trivia = document.getElementById("trivia");
-const about = document.getElementById("about");
+const triviaHeader = document.getElementById("triviaHeader");
 const rightAnswerOne = document.getElementById("rightAnswerOne");
 const wrongAnswerOne = document.getElementById("wrongAnswerOne");
 const rightAnswerTwo = document.getElementById("rightAnswerTwo");
 const wrongAnswerTwo = document.getElementById("wrongAnswerTwo");
 const rightAnswerThree = document.getElementById("rightAnswerThree");
 const wrongAnswerThree = document.getElementById("wrongAnswerThree");
-const refreshHome = document.getElementById("refreshHome");
-const refreshMovies = document.getElementById("refreshMovies");
-const refreshCharacters = document.getElementById("refreshCharacters");
 const triviaAgain = document.getElementById("triviaAgain");
-const navButtons = document.getElementById("nav-buttons");
-const abrirMenu = document.getElementById("abrir-menu");
-const cerrarMenu = document.getElementById("cerrar-menu");
+const triviaSection = document.getElementById("triviaSection");
+const content = document.getElementById("content");
+const buttonZone = document.getElementById("buttonZone");
+const movieHeaderSection = document.getElementById("movieHeaderSection");
+const charactersZone = document.getElementById("charactersZone");
+const characterHeaderSection = document.getElementById("characterHeaderSection");
+const characterContent = document.getElementById("characterContent");
 
-
-abrirMenu.addEventListener("click", function () {
+//evento para abrir el botón del menu hamburguesa en los media Queries
+openMenu.addEventListener("click", function () {
   navButtons.classList.add("visible");
   navButtons.style.display = "flex";
-  abrirMenu.style.display = "none";
+  openMenu.style.display = "none";
 
 })
-
-cerrarMenu.addEventListener("click", function () {
+//evento para cerrar el botón del menu hamburguesa en los media Queries
+closeMenu.addEventListener("click", function () {
   navButtons.classList.remove("visible");
   navButtons.style.display = "none";
-  abrirMenu.style.display = "block";
+  openMenu.style.display = "block";
 })
 
+
+//evento para volver a home, desde home, trivia, more y about
 refreshHome.addEventListener("click", function () {
   history.go(0)
 })
+
+//evento para volver a home, desde movies
 refreshMovies.addEventListener("click", function () {
   history.go(0)
-  productores.value = "Producers"
-  directores.value = "directors"
+  producers.value = "producers"
+  directors.value = "directors"
 })
-
+//evento para volver a home desde characters
 refreshCharacters.addEventListener("click", function () {
   history.go(0)
   characterMovies.value = "movies"
-  especie.value = "specie"
+  specie.value = "specie"
 
 })
 
+//evento para esconder o mostrar los elementos necesarios
 about.addEventListener("click", function () {
-  document.getElementById("aboutHeader").style.display = "flex";
-  document.getElementById("aboutSection").style.display = "flex";
-  document.getElementById("homeHeader").style.display = "none";
-  document.getElementById("home-Content").style.display = "none";
-  document.getElementById("moreHeader").style.display = "none";
-  document.getElementById("moreSection").style.display = "none";
-  document.getElementById("filmsZone").style.display = "none";
-  document.getElementById("triviaSection").style.display = "none";
-  document.getElementById("triviaHeader").style.display = "none";
-  document.getElementById("movieHeaderSection").style.display = "none";
-
+  aboutHeader.style.display = "flex";
+  aboutSection.style.display = "flex";
+  homeHeader.style.display = "none";
+  homeContent.style.display = "none";
+  moreHeader.style.display = "none";
+  moreSection.style.display = "none";
+  filmsZone.style.display = "none";
+  triviaSection.style.display = "none";
+  triviaHeader.style.display = "none";
+  movieHeaderSection.style.display = "none";
 })
 
+//evento para esconder o mostrar los elementos necesarios
 movies.addEventListener("click", function () {
-  document.getElementById("homeHeader").style.display = "none";
-  document.getElementById("home-Content").style.display = "none";
-  document.getElementById("filmsZone").style.display = "flex";
-  document.getElementById("content").style.display = "flex";
-  document.getElementById("buttonZone").style.display = "none";
-  document.getElementById("movieHeaderSection").style.display = "flex";
-  document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("aboutHeader").style.display = "none";
-  document.getElementById("aboutSection").style.display = "none";
-  document.getElementById("moreHeader").style.display = "none";
-  document.getElementById("triviaSection").style.display = "none";
-  document.getElementById("triviaHeader").style.display = "none";
-  document.getElementById("moreSection").style.display = "none";
-
+  aboutHeader.style.display = "none";
+  aboutSection.style.display = "none";
+  homeHeader.style.display = "none";
+  homeContent.style.display = "none";
+  filmsZone.style.display = "flex";
+  content.style.display = "flex";
+  buttonZone.style.display = "none";
+  movieHeaderSection.style.display = "flex";
+  charactersZone.style.display = "none";
+  moreHeader.style.display = "none";
+  triviaSection.style.display = "none";
+  triviaHeader.style.display = "none";
+  moreSection.style.display = "none";
 })
 
+//evento para esconder o mostrar los elementos necesarios
 more.addEventListener("click", function () {
-  document.getElementById("homeHeader").style.display = "none";
-  document.getElementById("home-Content").style.display = "none";
-  document.getElementById("moreHeader").style.display = "flex";
-  document.getElementById("moreSection").style.display = "flex";
-  document.getElementById("triviaSection").style.display = "none";
-  document.getElementById("triviaHeader").style.display = "none";
-  document.getElementById("aboutHeader").style.display = "none";
-  document.getElementById("aboutSection").style.display = "none";
-
+  aboutHeader.style.display = "none";
+  aboutSection.style.display = "none";
+  homeHeader.style.display = "none";
+  homeContent.style.display = "none";
+  moreHeader.style.display = "flex";
+  moreSection.style.display = "flex";
+  triviaSection.style.display = "none";
+  triviaHeader.style.display = "none";
 })
 
+//evento para esconder o mostrar los elementos necesarios
 characters.addEventListener("click", function () {
-  document.getElementById("homeHeader").style.display = "none";
-  document.getElementById("home-Content").style.display = "none";
-  document.getElementById("buttonZone").style.display = "none";
-  document.getElementById("characterHeaderSection").style.display = "flex";
-  document.getElementById("characterContent").style.display = "flex";
-  document.getElementById("charactersZone").style.display = "flex";
-  document.getElementById("triviaHeader").style.display = "none";
-  document.getElementById("triviaSection").style.display = "none";
-  document.getElementById("moreHeader").style.display = "none";
-  document.getElementById("aboutHeader").style.display = "none";
-  document.getElementById("aboutSection").style.display = "none";
-  document.getElementById("moreSection").style.display = "none";
-
+  aboutHeader.style.display = "none";
+  aboutSection.style.display = "none";
+  homeHeader.style.display = "none";
+  homeContent.style.display = "none";
+  buttonZone.style.display = "none";
+  characterHeaderSection.style.display = "flex";
+  characterContent.style.display = "flex";
+  charactersZone.style.display = "flex";
+  triviaHeader.style.display = "none";
+  triviaSection.style.display = "none";
+  moreHeader.style.display = "none";
+  moreSection.style.display = "none";
 })
 
-
-
+//evento para esconder o mostrar los elementos necesarios
 trivia.addEventListener("click", function () {
-
-  document.getElementById("homeHeader").style.display = "none";
-  document.getElementById("filmsZone").style.display = "none";
-  document.getElementById("home-Content").style.display = "none";
-  document.getElementById("content").style.display = "none";
-  document.getElementById("movieHeaderSection").style.display = "none";
-  document.getElementById("moreHeader").style.display = "none";
-  document.getElementById("moreSection").style.display = "none";
-  document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("triviaSection").style.display = "grid";
-  document.getElementById("triviaHeader").style.display = "flex";
-  document.getElementById("aboutHeader").style.display = "none";
-  document.getElementById("aboutSection").style.display = "none";
-
-
-
+  aboutHeader.style.display = "none";
+  aboutSection.style.display = "none";
+  homeHeader.style.display = "none";
+  homeContent.style.display = "none";
+  filmsZone.style.display = "none";
+  content.style.display = "none";
+  movieHeaderSection.style.display = "none";
+  moreHeader.style.display = "none";
+  moreSection.style.display = "none";
+  charactersZone.style.display = "none";
+  triviaSection.style.display = "grid";
+  triviaHeader.style.display = "flex";
 })
 
 
@@ -175,14 +188,13 @@ data.films
   //creamos otro array con etiquetas (div)
   .map(Element => divCreator(Element))
   //mostrar los objetos en una sección particular del HTML.
-  .forEach(movieDiv => document.getElementById("filmsZone").appendChild(movieDiv))
+  .forEach(movieDiv => filmsZone.appendChild(movieDiv))
 
 
 data.films.flatMap(element => element.people)
   .map(element => new showCharacters(element.name, element.img, element.gender, element.age, element.eye_color, element.hair_color, element.specie))
   .map(Element => divCreatorCharacter(Element))
-  .forEach(characterDiv => document.getElementById("charactersZone").appendChild(characterDiv))
-
+  .forEach(characterDiv => charactersZone.appendChild(characterDiv))
 
 
 
@@ -200,6 +212,7 @@ function infoDivCreator(x) {
   movieDivHover.appendChild(x.rt_score);
   return movieDivHover
 }
+
 
 function divInfoCharacter(x) {
   const movieDivHover = document.createElement("div");
@@ -269,29 +282,29 @@ function createText(textMovie) {
 let directorArray;
 let producerArray;
 //let films = data.films;
-directores.addEventListener("change", function () {
+directors.addEventListener("change", function () {
   filterSection.innerHTML = "";
-  const filteredByDirector = filterDirector(directores.value, data);
+  const filteredByDirector = filterDirector(directors.value, data);
   directorArray = filteredByDirector;
   filteredByDirector.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     .map(Element => divCreator(Element))
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("filmsZone").style.display = "none";
+  filmsZone.style.display = "none";
   //deberia mostrar el resultado del filtro
-  document.getElementById("filterSection").style.display = "flex";
-  productores.value = "Producers"
+  filterSection.style.display = "flex";
+  producers.value = "producers"
 
 
 })
 
 
-productores.addEventListener("change", function () {
+producers.addEventListener("change", function () {
   const dataBase = directorArray ? directorArray : data.films;
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const filteredByProducer = filterProducer(productores.value, dataBase);
+  const filteredByProducer = filterProducer(producers.value, dataBase);
   producerArray = filteredByProducer
   //devuelve un array con objetos del resultado del filtro
   filteredByProducer.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
@@ -300,29 +313,29 @@ productores.addEventListener("change", function () {
     //poner los divs en pantalla
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("filmsZone").style.display = "none";
-  document.getElementById("filterSection").style.display = "flex";
+  filmsZone.style.display = "none";
+  filterSection.style.display = "flex";
 
 })
 
 
-añoDeEstreno.addEventListener("change", function () {
-  const dataSort1 = productores.value === "Producers" ? directorArray : producerArray;
+releaseDate.addEventListener("change", function () {
+  const dataSort1 = producers.value === "producers" ? directorArray : producerArray;
   const dataSort = dataSort1 === undefined ? data.films : dataSort1;
   //const dataSort2 = directorArray?directorArray:data.films;
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const nuevoOrden = sortDataYear(añoDeEstreno.value, dataSort);
+  const sortedByDate = sortDataYear(releaseDate.value, dataSort);
   //devuelve un array con objetos del resultado del filtro
-  nuevoOrden.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
+  sortedByDate.map(film => new titleAndPoster(film.title, film.poster, film.director, film.producer, film.release_date, film.rt_score))
     //crea array con los divs 
     .map(Element => divCreator(Element))
     //poner los divs en pantalla
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("filmsZone").style.display = "none";
+  filmsZone.style.display = "none";
   //deberia mostrar el resultado del filtro
-  document.getElementById("filterSection").style.display = "flex";
+  filterSection.style.display = "flex";
 })
 
 
@@ -336,18 +349,18 @@ characterMovies.addEventListener("change", function () {
   characterPerMovie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
-  document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("filterSection").style.display = "flex";
-  especie.value = "specie"
+  charactersZone.style.display = "none";
+  filterSection.style.display = "flex";
+  specie.value = "specie"
 })
 
 
-especie.addEventListener("change", function () {
-  const dataBase = movieArray?movieArray:data.films.flatMap(element=> element.people);
+specie.addEventListener("change", function () {
+  const dataBase = movieArray ? movieArray : data.films.flatMap(element => element.people);
   //limpiar la pagina
   filterSection.innerHTML = "";
   //utilizar la funcion filtrar
-  const filteredBySpecie = filterSpecies(especie.value, dataBase);
+  const filteredBySpecie = filterSpecies(specie.value, dataBase);
   specieArray = filteredBySpecie;
   //devuelve un array con objetos del resultado del filtro
   filteredBySpecie.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
@@ -356,21 +369,21 @@ especie.addEventListener("change", function () {
     //poner los divs en pantalla
     .forEach(Element => filterSection.appendChild(Element))
   //ocultar la pantalla de inicio al usar el filtro
-  document.getElementById("charactersZone").style.display = "none";
+  charactersZone.style.display = "none";
   //deberia mostrar el resultado del filtro
-  document.getElementById("filterSection").style.display = "flex";
+  filterSection.style.display = "flex";
 })
 
 sortAZ.addEventListener("change", function () {
-  const dataSort1 = especie.value === "specie" ? movieArray : specieArray;
-  const dataSort = dataSort1 === undefined ? data.films.flatMap(element=> element.people) : dataSort1;
+  const dataSortValue = specie.value === "specie" ? movieArray : specieArray;
+  const dataSort = dataSortValue === undefined ? data.films.flatMap(element => element.people) : dataSortValue;
   filterSection.innerHTML = "";
   const characterSortAZ = functionSortAZ(sortAZ.value, dataSort);
   characterSortAZ.map(film => new showCharacters(film.name, film.img, film.gender, film.age, film.eye_color, film.hair_color, film.specie))
     .map(Element => divCreatorCharacter(Element))
     .forEach(Element => filterSection.appendChild(Element))
-  document.getElementById("charactersZone").style.display = "none";
-  document.getElementById("filterSection").style.display = "flex";
+  charactersZone.style.display = "none";
+  filterSection.style.display = "flex";
 })
 
 
