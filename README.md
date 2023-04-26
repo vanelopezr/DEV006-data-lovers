@@ -174,10 +174,10 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
 ## Prototipado - Proceso de diseño
 
 El prototipo de baja fidelidad se creó pensando en una sola pantalla que mostrara todos los filtros y los resultados de estos. 
-* prototipo de baja fidelidad
+* Prototipo de baja fidelidad
 ![image](baja.png)
 
-*Prototipo de alta fidelidad versión 1
+* Prototipo de alta fidelidad versión 1
 
 El prototipo de alta fidelidad se diseñó a partir del prototipo de baja fidelidad con una sola pantalla que mostrara todos los filtros y los resultados; con colores frios/sobrios y serios, sin tomar en cuenta la temática de la data.
 
