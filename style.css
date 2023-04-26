@@ -9,11 +9,11 @@ body {
     font-family: 'Patrick Hand', cursive;
 }
 
-.abrir-menu {
+.open-menu {
     display: none;
 }
 
-.cerrar-menu {
+.close-menu {
     display: none;
 }
 
@@ -164,7 +164,7 @@ nav {
     color: #D3D9DA;
 }
 
-.Filtros {
+.Filters {
     font-family: 'Patrick Hand', cursive;
     font-size: xx-large;
     width: 15%;
@@ -181,7 +181,7 @@ nav {
     font-size: large;
 }
 
-.Filtros:hover {
+.Filters:hover {
     background-color: rgb(182, 212, 186);
 }
 
@@ -452,8 +452,8 @@ footer {
         width: 100%;
     }
 
-    .abrir-menu,
-    .cerrar-menu {
+    .open-menu,
+    .close-menu {
         display: flex;
         margin-block: auto;
         background-color: transparent;
@@ -465,7 +465,7 @@ footer {
         margin-right: 25px;
     }
 
-    .abrir-menu {
+    .open-menu {
         font-size: xx-large;
         margin-left: auto;
     }
@@ -476,7 +476,7 @@ footer {
         margin-top: 0px;
     }
 
-    .cerrar-menu {
+    .close-menu {
         font-size: 2.8rem;
     }
 
@@ -604,12 +604,12 @@ footer {
         margin-left: 8%;
         margin-top: 10px;
         margin-bottom: 10px;
-        font-size: x-large;
+        font-size: large;
         margin-right: auto;
 
     }
 
-    .Filtros {
+    .Filters {
         font-size: small;
         padding: 0;
         width: 30%;

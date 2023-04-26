@@ -32,9 +32,9 @@
 
   <nav id="buttonZone">
 
-    <button class="abrir-menu" id="abrir-menu"><i class="bi bi-list"></i> </button>
+    <button class="open-menu" id="open-menu"><i class="bi bi-list"></i> </button>
     <div class="nav-buttons" id="nav-buttons">
-      <button class="cerrar-menu" id="cerrar-menu"><i class="bi bi-x"></i></button>
+      <button class="close-menu" id="close-menu"><i class="bi bi-x"></i></button>
       <div class="nav-list">
         <button class="refreshButton" id="refreshHome"> <img src="Vector.png" class="homePng" alt="home-icon"> <p class="homeText"> Home </p></button>
         <button class="homeButtons" id="about"> About</button>
@@ -79,7 +79,7 @@
   <section class="content" id="content">
     <button class="refreshButton" id="refreshMovies"> <img src="Vector.png" class="homePng" alt="home-icon"> <p  class="homeText"> Home </p></button>
     <p class="filterText">Filter by: </p>
-    <select class="Filtros" name="Directores" id="Directores">
+    <select class="Filters" name="Directors" id="directors">
       <option disabled selected class="options" value="directors">Directors</option>
       <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
       <option value="Isao Takahata" class="options">Isao Takahata</option>
@@ -89,8 +89,8 @@
       <option value="Hiromasa Yonebayashi" class="options">Hiromasa Yonebayashi</option>
     </select>
 
-    <select class="Filtros" name="Productores" id="Productores">
-      <option disabled selected class="options" value="Producers">Producers</option>
+    <select class="Filters" name="Productores" id="producers">
+      <option disabled selected class="options" value="producers">Producers</option>
       <option value="Hayao Miyazaki" class="options">Hayao Miyazaki</option>
       <option value="Isao Takahata" class="options">Isao Takahata</option>
       <option value="Toru Hara" class="options">Toru Hara</option>
@@ -98,7 +98,7 @@
       <option value="Yoshiaki Nishimura" class="options">Yoshiaki Nishimura</option>
     </select>
 
-    <select class="Filtros" name="añoDeEstreno" id="añoDeEstreno">
+    <select class="Filters" name="releaseDate" id="releaseDate">
       <option disabled selected class="options">Release Date</option>
       <option value="oldest" class="options">Oldest</option>
       <option value="newest" class="options">Newest</option>
@@ -122,7 +122,7 @@
         alt="home-icon"> <p  class ="homeText"> Home </p> </button>
     <p class="filterText">Filter by: </p>
 
-    <select class="Filtros" name="Movies" id="characterMovies">
+    <select class="Filters" name="Movies" id="characterMovies">
       <option disabled selected value="movies">Movies</option>
       <option value="Castle in the Sky" class="options">Castle in the Sky</option>
       <option value="My Neighbor Totoro" class="options">My Neighbor Totoro</option>
@@ -146,7 +146,7 @@
       <option value="When Marnie Was There" class="options">When Marnie Was There</option>
     </select>
 
-    <select class="Filtros" name="Especie" id="Especie">
+    <select class="Filters" name="specie" id="specie">
       <option disabled selected value="specie">Specie</option>
       <option value="Human" class="options">Humans</option>
       <option value="Witch" class="options">Witches</option>
@@ -158,7 +158,7 @@
       <option value="Else" class="options">Others</option>
     </select>
 
-    <select class="Filtros" name="sortAZ" id="sortAZ">
+    <select class="Filters" name="sortAZ" id="sortAZ">
       <option disabled selected class="options">Sort A-Z</option>
       <option value="AZ" class="options">A-Z</option>
       <option value="ZA" class="options">Z-A</option>
