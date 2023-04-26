@@ -13,7 +13,7 @@ Definición del producto
 
 Este producto está dirigido a fans o posibles fans de Studio Ghibli que esten interesados en revisar información sobre las películas y personajes, también podrán encontrar una trivia para poner a prueba su conocimiento y una breve introducción al estudio.
 
-Para entregar una experiencia grata, los colores y diseño del sitio se escogieron pensando en el usuario y en la temática. La paleta de colores e imágenes utilizada se basaron en referencias extraidas desde sitios oficiales y de las películas.
+Para entregar una experiencia grata, los colores y diseño del sitio se escogieron pensando en el usuario y en la temática. La paleta de colores e imágenes utilizadas se basaron en referencias extraidas desde sitios oficiales y de las películas.
 
 ## Historias de usuario
 
