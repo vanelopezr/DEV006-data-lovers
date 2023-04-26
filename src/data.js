@@ -22,7 +22,6 @@ export const sortDataYear = (sortBy, data) => {
   }
 
   return orden;
-
 };
 
 export const characterMovie = (characterMovies, data) => {
