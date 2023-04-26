@@ -92,7 +92,7 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
   - Se muestra la informacion relevante del elemento.
   - Que se muestren las películas en orden cronológico.
   
-  * HU5
+* HU5
 
   - Como: Fan de Ghibli.
   - Quiero: Conocer todas los personajes que hay por película.
@@ -153,7 +153,7 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
   - Que se muestren las películas en orden alfabético.
   
   
-  * HU8
+* HU8
 
   - Como: Fan de Ghibli.
   - Quiero: Tomar una trivia interactiva.
