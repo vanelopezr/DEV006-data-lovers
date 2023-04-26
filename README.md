@@ -71,29 +71,8 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
   - Se muestras los elementos de forma alineada y ordenada.
   - Se muestra la informacion relevante del elemento.
   - Que se oculten el resto de las películas y que solo se muestren las filtradas.
-
+  
 * HU4
-
-  - Como: Fan de Ghibli.
-  - Quiero: Conocer todas las especies de los personajes de las películas de Ghibli.
-  - Para: Aprender más sobre Ghibli.
-  
-  Criterios de aceptación
-  - Ver todos los personajes al ingresar a la sección "characters".
-  - Poder escoger una especie para filtrar.
-  - Ver todos los personajes de la especie elegida.
-  - Ver los personajes con su imagen, nombre, género, edad y color de ojos.
-  
-  Definición de terminado
-  - Que exista un botón que filtre por especie dependiendo de la elección de usuario.
-  - Test unitarios.
-  - Diseño responsive.
-  - Se muestras los elementos de forma alineada y ordenada.
-  - Se muestra la informacion relevante del elemento.
-  - Que se muestren los personajes de la especie escogida.
-
-  
-* HU5
 
   - Como: Estudiante de animación.
   - Quiero: Ver todas las películas de el estudio en orden cronológico.
@@ -113,23 +92,46 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
   - Se muestra la informacion relevante del elemento.
   - Que se muestren las películas en orden cronológico.
   
+  * HU5
+
+  - Como: Fan de Ghibli.
+  - Quiero: Conocer todas los personajes que hay por película.
+  - Para: Aprender más sobre los personajes de Ghibli.
+  
+  Criterios de aceptación
+  - Poder escoger una película para filtrar.
+  - Ver todos los personajes de la película escogida.
+  - Ver los personajes con su imagen, nombre, género, edad y color de ojos.
+  
+  Definición de terminado
+  - Que exista un botón que filtre por película dependiendo de la elección de usuario.
+  - Test unitarios.
+  - Diseño responsive.
+  - Se muestras los elementos de forma alineada y ordenada.
+  - Se muestra la informacion relevante del elemento.
+  - Que se muestren los personajes de la película escogida y que se oculte el resto.
+  
+
 * HU6
 
   - Como: Fan de Ghibli.
-  - Quiero: Tomar una trivia interactiva.
-  - Para: Aprender más sobre Ghibli y divertirme.
+  - Quiero: Conocer todas las especies de los personajes de las películas de Ghibli.
+  - Para: Aprender más sobre Ghibli.
   
   Criterios de aceptación
-  - Debe haber una trivia.
-  - Al marcar una alternativa, se debe revelar si mi elección estuvo correcta o incorrecta. 
-  - Diseño atractivo e interactivo.
+  - Ver todos los personajes al ingresar a la sección "characters".
+  - Poder escoger una especie para filtrar.
+  - Ver todos los personajes de la especie elegida.
+  - Ver los personajes con su imagen, nombre, género, edad y color de ojos.
   
   Definición de terminado
-  - Que exista una sección de trivia.
+  - Que exista un botón que filtre por especie dependiendo de la elección de usuario.
   - Test unitarios.
   - Diseño responsive.
-  - Se muestran los porcentajes que justifican la respuesta correcta.
-  - Se marca la alternativa correcta de color verde y la incorrecta de color rojo.
+  - Se muestras los elementos de forma alineada y ordenada.
+  - Se muestra la informacion relevante del elemento.
+  - Que se muestren los personajes de la especie escogida y que se oculte el resto.
+
 
 * HU7
 
@@ -149,14 +151,33 @@ Para entregar una experiencia grata, los colores y diseño del sitio se escogier
   - Se muestras los elementos de forma alineada y ordenada.
   - Se muestra la informacion relevante del elemento.
   - Que se muestren las películas en orden alfabético.
+  
+  
+  * HU8
 
-## Prototipado - Proceso de diseno
+  - Como: Fan de Ghibli.
+  - Quiero: Tomar una trivia interactiva.
+  - Para: Aprender más sobre Ghibli y divertirme.
+  
+  Criterios de aceptación
+  - Debe haber una trivia.
+  - Al marcar una alternativa, se debe revelar si mi elección estuvo correcta o incorrecta. 
+  - Diseño atractivo e interactivo.
+  
+  Definición de terminado
+  - Que exista una sección de trivia.
+  - Test unitarios.
+  - Diseño responsive.
+  - Se muestran los porcentajes que justifican la respuesta correcta.
+  - Se marca la alternativa correcta de color verde y la incorrecta de color rojo.
+
+## Prototipado - Proceso de diseño
 
 El prototipo de baja fidelidad se creó pensando en una sola pantalla que mostrara todos los filtros y los resultados de estos. 
-
+* prototipo de baja fidelidad
 ![image](baja.png)
 
-*Prototipo de alta fidelidad version 1
+*Prototipo de alta fidelidad versión 1
 
 El prototipo de alta fidelidad se diseñó a partir del prototipo de baja fidelidad con una sola pantalla que mostrara todos los filtros y los resultados; con colores frios/sobrios y serios, sin tomar en cuenta la temática de la data.
 
@@ -189,9 +210,9 @@ Durante un test de usabilidad se detectó un elemento que no era util para el us
 
 ## Funcionalidades
 
-*Filter
-*Sort
-*Cálculo agregado (trivia)
+* Filter
+* Sort
+* Cálculo agregado (trivia)
 
 ## Autores del proyecto
 
